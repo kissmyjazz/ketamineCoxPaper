@@ -1,7 +1,7 @@
 Package: ketamineCoxPaper
 Title: Code for the paper on ketamine-COX experiment
 Version: 0.0.0.9000
-Authors@R: 
+Authors@R:
     person(given = "Denis",
            family = "Matrov",
            role = c("aut", "cre"),
@@ -13,3 +13,4 @@ Encoding: UTF-8
 LazyData: true
 URL: https://github.com/kissmyjazz/ketamineCoxPaper
 BugReports: https://github.com/kissmyjazz/ketamineCoxPaper/issues
+Imports: bookdown
