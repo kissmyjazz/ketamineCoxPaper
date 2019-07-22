@@ -1,0 +1,13 @@
+Package: ketamineCoxPaper
+Title: Code for the paper on ketamine-COX experiment
+Version: 0.0.0.9000
+Authors@R: 
+    person(given = "Denis",
+           family = "Matrov",
+           role = c("aut", "cre"),
+           email = "jazzhole@gmail.com")
+Description: The package contains the code necessary to generate ketamine-COX paper
+License: MIT + file LICENSE
+ByteCompile: true
+Encoding: UTF-8
+LazyData: true
