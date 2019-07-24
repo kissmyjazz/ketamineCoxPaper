@@ -6,5 +6,9 @@
 *.tiff
 *.bib
 *.csl
+*.log
+
+
 .Rhistory
 .RData
+
