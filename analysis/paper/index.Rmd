@@ -33,7 +33,7 @@ affiliation:
 keywords          : ["rats", "cytochrome oxidase", "ketamine"]
 wordcount         : "X"
 
-bibliography      : ["references.bib"]
+bibliography      : ["references.bib", "r-packages.bib"]
 
 floatsintext      : no
 figurelist        : no
@@ -55,6 +55,7 @@ library("ggplot2")
 library("tidyverse")
 library("scales")
 library("gridExtra")
+library("mice")
 # Seed for random number generation
 set.seed(42)
 knitr::opts_chunk$set(
