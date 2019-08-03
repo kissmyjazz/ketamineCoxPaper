@@ -27,5 +27,13 @@ joint_names <- intersect(names_treatment, names_control)
 full_names_imp <- names[joint_names[-c(1:2)]]
 readr::write_rds(full_names_imp, fp_imp_names)
 
-df_to_imput <- df %>% select(-1, joint_names)
+df_to_impute <- df %>% dplyr::select(id, joint_names)
+
+table(sapply(df_to_impute, function(x) sum(is.na(x))))
+
+fp_df_to_impute <- here("analysis", "data", "derived_data", "df_remote.rds")
+fp_df_to_impute_csv <- here("analysis", "data", "derived_data", "df_remote.csv")
+
+readr::write_rds(df_to_impute, fp_df_to_impute)
+readr::write_csv(df_to_impute, fp_df_to_impute_csv)
 
