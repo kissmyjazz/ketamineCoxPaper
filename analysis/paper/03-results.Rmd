@@ -1,0 +1,13 @@
+## Testing for difference in mean COX levels
+
+```{r table-t-tests, cache=TRUE, results="asis"}
+fp_table <- here::here("analysis", "data", "derived_data", "t_tests.rds")
+t_tests <- readr::read_rds(fp_table) 
+t_tests$`p value` <- papaja::printp(t_tests$`p value`)
+papaja::apa_table(t_tests, escape = TRUE, caption = "Significant t-test results")
+```
+
+
+After we have performed the Welch's two sample t-test on 10 multiply imputed datasets and pooled the estimates, the mean comparisons in 10 brain regions emerged as statistically significant. The 11th result was barely significant (GP background) and we decided to exclude it from the further analysis, as results in GP was already significantly different. The results of t-test are provided in Table \@ref(tab:table-t-tests). In all significant cases ketamine group rats had higher levels of cytochrome c oxidase activity.
+
+

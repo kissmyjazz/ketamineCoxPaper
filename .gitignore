@@ -8,6 +8,7 @@
 *.csl
 *.log
 *.tex
+*.rds
 *.DS_Store
 
 .Rhistory

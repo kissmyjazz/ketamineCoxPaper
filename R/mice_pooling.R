@@ -2,20 +2,34 @@ library(tidyverse)
 library(here)
 library(mice)
 fp <- here("analysis", "data", "derived_data", "mids_rf.rds")
+fp_table <- here("analysis", "data", "derived_data", "t_tests.rds")
 mids_rf <- readr::read_rds(fp)
 
 # plots an example of variable with 4 missing values
-stripplot(mids_rf, BMA...2.12. ~ .imp, pch = 20, cex = 2)
-stripplot(mids_rf, BNST_V...0.2. ~ .imp, pch = 20, cex = 2)
+stripplot(mids_rf, LOT...1.3. ~ .imp, pch = 20, cex = 2,
+          xlab = "", ylab = "",
+          scales = list(x = list(labels = c(0, paste0("i", 1:10)), cex = 1.2),
+                        y = list(cex = 1.2)),
+          par.settings = list(axis.line = list(col = 0)),
+          panel=function(...){
+            lims <- current.panel.limits()
+            panel.stripplot(...)
+            panel.abline(h=lims$ylim[1],v=lims$xlim[1], col = "black", lwd = 2)
+          })
 
 data <- mids_rf %>% mice::complete("long", include = FALSE)
-formulas <- paste(names(data)[4:(ncol(data)-1)], "~ treatment")
-names(formulas) <- names(data)[4:(ncol(data)-1)]
+formulas <- paste(names(data)[5:(ncol(data))], "~ treatment")
+names(formulas) <- names(data)[5:(ncol(data))]
 
 make_lm <- function(formula, data) {
   data %>% dplyr::group_by(.imp) %>% dplyr::group_map( ~lm(as.formula(formula), data = .)) %>%
-    pool() %>% summary() %>% dplyr::slice(2)
+    pool() %>% summary(conf.int = TRUE,conf.level = 0.95) %>% dplyr::slice(2)
 }
 
-res <- make_lm("V2L...8. ~ treatment", data = data)
-res2 <- map_df(formulas, make_lm, .id = 'ROI', data = data)
+res <- map_df(formulas, make_lm, .id = 'ROI', data = data)
+res_2 <- res %>% arrange(p.value) %>%
+  dplyr::select("brain region" = ROI, "t test" = statistic, df, "p value" = p.value,
+                "mean difference" = estimate, "SE" = std.error,
+                everything()) %>%
+  arrange(`p value`) %>% slice(1:10)
+readr::write_rds(res_2, fp_table)
