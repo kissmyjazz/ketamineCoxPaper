@@ -9,6 +9,10 @@ fp_cormat_control <- here("analysis", "data", "derived_data", "cormat_control.rd
 fp_dgca <- here("analysis", "data", "derived_data", "dgca_imputed.rds")
 fp_dgca2 <- here("analysis", "data", "derived_data", "dgca_imputed_ave.rds")
 fp_avg_zscore <- here("analysis", "data", "derived_data", "dgca_imputed_ave_zscore.rds")
+fp_overall_pvalue <- here("analysis", "data", "derived_data",
+                          "dgca_imputed_overall_pvalue.rds")
+fp_zscore <- here("analysis", "data", "derived_data",
+                          "dgca_imputed_zscore.rds")
 
 mids_rf <- readr::read_rds(fp)
 
@@ -64,24 +68,31 @@ dgca_results_2 <- mids_t_list %>% map( ~ ddcorAll(inputMat = .x, design = design
                                                 corrType = "spearman", nPairs = "all"))
 readr::write_rds(dgca_results_2, fp_dgca2)
 
-dgca_results_2 %>% map2(c(2, 1), c(2, 3), ~paste(.x, .y, collapse = "."))
-
 # median gain or loss of correlation of each gene in the data set with all others
 # difference in median z-scores & corresponding p-values
-mean_regional_p_df <- dgca_results_2 %>% map(c(2, 3)) %>% transpose() %>% simplify_all() %>%
-  map(mean) %>%
-set_names(pluck(dgca_results_2, 1, 2, 1)) %>% simplify() %>%
-  tibble::enframe() %>% rename("p" = value)
+median_regional_df <- dgca_results_2 %>%
+  map_dfr( ~data.frame(regions = pluck(.x, 2, 1), z_score_diff = pluck(.x, 2, 2),
+                       p = pluck(.x, 2, 3))) %>%
+  dplyr::group_by(regions) %>%
+  summarise(z_score_diff = median(z_score_diff), p = mean(p)) %>%
+  arrange(p)
 
-median_regional_zscore_df <- dgca_results_2 %>% map(c(2, 2)) %>% transpose() %>%
-  simplify_all() %>% map(median) %>% simplify() %>%
-set_names(pluck(dgca_results_2, 1, 2, 1)) %>% tibble::enframe() %>% rename("ZDiff" = value)
-
-cor_changes <- median_regional_zscore_df %>% dplyr::left_join(mean_regional_p_df)
-
-sign_cor_changes <- cor_changes %>% dplyr::slice(1:2, 5:7, 9) %>% dplyr::arrange(p)
+sign_cor_changes <- median_regional_df %>% slice(1:6)
 readr::write_rds(sign_cor_changes, fp_avg_zscore)
 
+# calculates p value of differential correlation between 2 conditions for all brain
+# regions with all brain regions
+overall_p <- dgca_results_2 %>% map(c(3, 2)) %>% simplify() %>% lift_vd(mean)(.)
+readr::write_rds(overall_p, fp_overall_pvalue)
 
-
-
+# here I calculate pairwise regional z difference scores
+regional_df <- dgca_results_2 %>%
+  map_dfr( ~data.frame(region1 = pluck(.x, 1, 1), region2 = pluck(.x, 1, 2),
+                       control_cor = pluck(.x, 1, 3), treatment_cor = pluck(.x, 1, 5),
+                       z_score_diff = pluck(.x, 1, 7),
+                       p = pluck(.x, 1, 9))) %>%
+  dplyr::group_by(region1, region2) %>%
+  summarise(z_score_diff = median(z_score_diff), p = mean(p),
+            control_cor = median(control_cor), treatment_cor = median(treatment_cor)) %>%
+  arrange(p)
+readr::write_rds(regional_df, fp_zscore)
