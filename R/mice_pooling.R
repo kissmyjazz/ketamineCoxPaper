@@ -28,8 +28,8 @@ make_lm <- function(formula, data) {
 
 res <- map_df(formulas, make_lm, .id = 'ROI', data = data)
 res_2 <- res %>% arrange(p.value) %>%
-  dplyr::select("brain region" = ROI, "t test" = statistic, df, "p value" = p.value,
-                "mean difference" = estimate, "SE" = std.error,
+  dplyr::select("brain region" = ROI, "t" = statistic, df, "p" = p.value,
+                "mean difference" = estimate, "se" = std.error,
                 everything()) %>%
-  arrange(`p value`) %>% slice(1:10)
+  arrange(p) %>% slice(1:10)
 readr::write_rds(res_2, fp_table)

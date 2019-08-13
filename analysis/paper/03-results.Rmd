@@ -1,6 +1,6 @@
 ## Testing for difference in mean COX levels
 
-```{r table-t-tests, cache=TRUE, results="asis"}
+```{r table-t-tests, cache=FALSE, results="asis"}
 fp_table <- here::here("analysis", "data", "derived_data", "t_tests.rds")
 t_tests <- readr::read_rds(fp_table) 
 t_tests$`p value` <- papaja::printp(t_tests$`p value`)
