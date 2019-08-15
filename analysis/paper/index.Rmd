@@ -57,6 +57,7 @@ library("scales")
 library("gridExtra")
 library("mice")
 library("here")
+library("kableExtra")
 
 # Seed for random number generation
 set.seed(42)

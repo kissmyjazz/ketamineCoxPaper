@@ -16,4 +16,41 @@ fp_overall_pvalue <- here::here("analysis", "data", "derived_data", "dgca_impute
 p_value <- readr::read_rds(fp_overall_pvalue) 
 ```
 
-The average correlation between the two conditions did not differ significantly p = `r papaja::printnum(p_value)`.
+```{r dca-regional-average, cache=FALSE, results="asis"}
+fp_avg_zscore <- here::here("analysis", "data", "derived_data", "dgca_imputed_ave_zscore.rds")
+sign_cor_changes <- readr::read_rds(fp_avg_zscore)
+sign_cor_changes$p <- papaja::printp(sign_cor_changes$p)
+sign_cor_changes %>% dplyr::rename("brain region" = regions, "delta z-score" = z_score_diff) %>% papaja::apa_table(escape = TRUE, caption = "Regional median changes in correlation")
+```
+
+
+The average correlation between the two conditions did not differ significantly p = `r papaja::printnum(p_value)`. The regional median changes in correlations are provided in table \@ref(tab:dca-regional-average). The five regions have significantly more negative median correlations with the rest of brain regions in ketamine-treated rats, Locus coeruleus instead showed a borderline significant increase in the median correlation.
+
+```{r dca-pairwise, cache=FALSE, include=FALSE}
+fp_pos_df <- here("analysis", "data", "derived_data", "control_pos_df.rds")
+fp_neg_df <- here("analysis", "data", "derived_data", "control_neg_df.rds")
+control_pos_df <- readr::read_rds(fp_pos_df)
+control_neg_df <- readr::read_rds(fp_neg_df)
+```
+
+```{r table-positive, cache=FALSE, results="asis"}
+control_pos_df$p <- papaja::printp(control_pos_df$p)
+control_pos_df %>% dplyr::rename("region 1" = region1,
+  "region 2" = region2, "delta z-score" = z_score_diff, "r control" = control_cor, 
+  "r ketamine" = treatment_cor) %>% 
+  kable(booktabs = T, format = "latex", longtable = TRUE,
+      caption = "Decreased pairwise correlations in ketamine rats") %>%
+kable_styling(bootstrap_options = "striped", font_size = 12, latex_options = "repeat_header")
+```
+
+```{r table-negative, cache=FALSE, results="asis"}
+control_neg_df$p <- papaja::printp(control_neg_df$p) 
+control_neg_df %>% dplyr::rename("region 1" = region1,
+  "region 2" = region2, "delta z-score" = z_score_diff, "r control" = control_cor, 
+  "r ketamine" = treatment_cor) %>% 
+  kable(booktabs = T, format = "latex", longtable = TRUE,
+      caption = "Increased pairwise correlations in ketamine rats") %>%
+kable_styling(bootstrap_options = "striped", font_size = 12)
+```
+For the presentation of significantly changed pairwise correlation coefficients we chose brain regions that exhibited significant change in at least 2 pairs. 
+As for pairwise comparisons between brain regions in `r nrow(control_pos_df)` cases the correlation has become more negative in ketamine rats at p level below 0.01 (table \@ref(tab:table-positive)). Op....5.8. was the brain region with the biggest number of  significant pairwise changes in correlation (8 pairs). The other brain regions in table \@ref(tab:table-positive) had between 2 and 4 pairwise reductions in the correlation coefficients. Conversely, in `r nrow(control_neg_df)` pairs the correlation was increased  after ketamine treatment (table \@ref(tab:table-negative)). 

@@ -2,10 +2,14 @@ library("tidyverse")
 library("mice")
 library("mitools")
 library("DGCA")
+library("here")
 
 fp <- here("analysis", "data", "derived_data", "mids_rf.rds")
 fp_cormat_treatment <- here("analysis", "data", "derived_data", "cormat_treatment.rds")
 fp_cormat_control <- here("analysis", "data", "derived_data", "cormat_control.rds")
+fp_cormat_control_avg <- here("analysis", "data", "derived_data", "cormat_control_avg.rds")
+fp_cormat_treatment_avg <- here("analysis", "data", "derived_data",
+                                "cormat_treatment_avg.rds")
 fp_dgca <- here("analysis", "data", "derived_data", "dgca_imputed.rds")
 fp_dgca2 <- here("analysis", "data", "derived_data", "dgca_imputed_ave.rds")
 fp_avg_zscore <- here("analysis", "data", "derived_data", "dgca_imputed_ave_zscore.rds")
@@ -13,30 +17,52 @@ fp_overall_pvalue <- here("analysis", "data", "derived_data",
                           "dgca_imputed_overall_pvalue.rds")
 fp_zscore <- here("analysis", "data", "derived_data",
                           "dgca_imputed_zscore.rds")
+fp_pos_df <- here("analysis", "data", "derived_data", "control_pos_df.rds")
+fp_neg_df <- here("analysis", "data", "derived_data", "control_neg_df.rds")
+fp_df_avg <- here("analysis", "data", "derived_data", "mids_df_avg")
 
 mids_rf <- readr::read_rds(fp)
 
 # this block of the code splits imputed data into control and treatment conditions
 mids_df <- mids_rf %>% mice::complete(action = "long", include = TRUE) %>%
   dplyr::select(-.id)
-mids_list <- mids_rf %>% mice::complete(action = "all", include = FALSE)
+mids_list <- mids_rf %>% mice::complete(action = "all")
 
-mids_df_treatment <- mids_df[which(mids_df$treatment == "treatment"), ]
-mids_df_control <- mids_df[which(mids_df$treatment == "control"), ]
+# I take the mean of imputations here for cluster analysis
+mids_df_avg <- mids_rf %>% mice::complete(action = "long", include = FALSE) %>%
+  group_by(id, treatment) %>% summarise_all(.funs = mean) %>% dplyr::select(-.imp, -.id)
+readr::write_rds(mids_df_avg, fp_df_avg)
+
+mids_df_treatment <- mids_df[which(mids_df$treatment == "treatment"), ] %>%
+  dplyr::select(-id, -treatment)
+mids_df_control <- mids_df[which(mids_df$treatment == "control"), ] %>%
+  dplyr::select(-id, -treatment)
 mids_rf_treatment <- mids_df_treatment %>% as.mids(.id = "id")
 mids_rf_control <- mids_df_control %>% as.mids(.id = "id")
 
 # performs statistical inference for correlations and derives common cor matrix
 cor_treatment <- mids_rf_treatment %>%
-  micombine.cor(variables = 2:191, method = "spearman")
+  miceadds::micombine.cor(variables = 1:190, method = "spearman")
 
 cor_control <- mids_rf_control %>%
-  micombine.cor(variables = 2:191, method = "spearman")
+  miceadds::micombine.cor(variables = 1:190, method = "spearman")
 
 cormat_treatment <- attr(cor_treatment, "r_matrix")
 cormat_control <- attr(cor_control, "r_matrix")
 readr::write_rds(cormat_treatment, fp_cormat_treatment)
 readr::write_rds(cormat_control, fp_cormat_control)
+
+# calculates average correlation matrix
+cormat_control_mean <- mids_rf_control %>%
+  mice::complete(action = "all", include = FALSE) %>% lapply(cor)
+cormat_control_mean <- Reduce("+", cormat_control_mean) / length(cormat_control_mean)
+
+cormat_treatment_mean <- mids_rf_treatment %>%
+  mice::complete(action = "all", include = FALSE) %>% lapply(cor)
+cormat_treatment_mean <- Reduce("+", cormat_treatment_mean) / length(cormat_treatment_mean)
+
+readr::write_rds(cormat_control_mean, fp_cormat_control_avg)
+readr::write_rds(cormat_treatment_mean, fp_cormat_treatment_avg)
 
 treatment_list <- list(corrs = cormat_treatment, nsamp = 7, pvals = cor_treatment$p)
 control_list <- list(corrs = cormat_control, nsamp = 7, pvals = cor_control$p)
@@ -67,6 +93,7 @@ dgca_results_2 <- mids_t_list %>% map( ~ ddcorAll(inputMat = .x, design = design
                                                 verbose = TRUE, dCorAvgType = "both",
                                                 corrType = "spearman", nPairs = "all"))
 readr::write_rds(dgca_results_2, fp_dgca2)
+dgca_results_2 <- readr::read_rds(fp_dgca2)
 
 # median gain or loss of correlation of each gene in the data set with all others
 # difference in median z-scores & corresponding p-values
@@ -96,3 +123,31 @@ regional_df <- dgca_results_2 %>%
             control_cor = median(control_cor), treatment_cor = median(treatment_cor)) %>%
   arrange(p)
 readr::write_rds(regional_df, fp_zscore)
+
+regional_df_005_control_positive <- regional_df %>%
+  dplyr::filter(p < 0.01 & control_cor > treatment_cor) %>%
+  dplyr::select(region1, region2) %>% purrr::map( ~(table(.x))) %>%
+  purrr::transpose() %>% simplify_all() %>% purrr::map( ~purrr::reduce(.x, `+`)) %>%
+  purrr::keep(. >= 2)
+
+regional_df_005_control_negative <- regional_df %>%
+  dplyr::filter(p < 0.01 & control_cor < treatment_cor) %>%
+  dplyr::select(region1, region2) %>% purrr::map( ~(table(.x))) %>%
+  purrr::transpose() %>% simplify_all() %>% purrr::map( ~purrr::reduce(.x, `+`)) %>%
+  purrr::keep(. >= 2)
+
+names_pos <- names(regional_df_005_control_positive)
+names_neg <- names(regional_df_005_control_negative)
+
+control_pos_df <- regional_df %>%
+  dplyr::filter(p < 0.01 & control_cor > treatment_cor) %>%
+  dplyr::filter(region1 %in% names_pos | region2 %in% names_pos)
+
+control_neg_df <- regional_df %>%
+  dplyr::filter(p < 0.01 & control_cor < treatment_cor) %>%
+  dplyr::filter(region1 %in% names_neg | region2 %in% names_neg)
+
+readr::write_rds(control_pos_df, fp_pos_df)
+readr::write_rds(control_neg_df, fp_neg_df)
+
+
