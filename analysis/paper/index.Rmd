@@ -33,7 +33,7 @@ affiliation:
 keywords          : ["rats", "cytochrome oxidase", "ketamine"]
 wordcount         : "X"
 
-bibliography      : ["references.bib", "r-packages.bib"]
+bibliography      : ["R-packages.bib", "references.bib"]
 
 floatsintext      : no
 figurelist        : no

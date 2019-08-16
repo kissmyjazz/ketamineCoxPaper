@@ -11,13 +11,36 @@ fp_df_avg <- here("analysis", "data", "derived_data", "mids_df_avg")
 
 # mean results of the imputation
 df_avg <- readr::read_rds(fp_df_avg)
-df_avg_control <- df_avg %>% dplyr::filter(treatment == "control")
-df_avg_treatment <- df_avg %>% dplyr::filter(treatment == "treatment")
+df_avg_control <- df_avg %>% ungroup() %>% dplyr::filter(treatment == "control") %>%
+  dplyr::select(-c(1:2))
+df_avg_treatment <- df_avg %>% ungroup() %>% dplyr::filter(treatment == "treatment")  %>%
+  dplyr::select(-c(1:2))
+
+brain_regions <- colnames(df_avg_control)
+df_avg_control_t <- df_avg_control %>% t() %>% `rownames<-`(brain_regions)
+df_avg_treatment_t <- df_avg_treatment %>% t() %>% `rownames<-`(brain_regions)
 
 # There is one missing value in treatment condition that was not filled by imputation
 # so I delete that data
 cormat_treatment <- readr::read_rds(fp_cormat_treatment_avg)
 cormat_control <- readr::read_rds(fp_cormat_control_avg)
+
+ketamine_clusters_clara <- factoextra::eclust(as.matrix(df_avg_treatment_t),
+                                              FUNcluster = "pam",
+                                              k.max = 30, hc_metric = "spearman",
+                                              hc_method = "ward.D2",
+                                              stand = FALSE, graph = TRUE,
+                                              nboot = 1000, verbose = TRUE, k = NULL)
+
+control_clusters_clara <- factoextra::eclust(as.matrix(df_avg_control_t),
+                                             FUNcluster = "pam",
+                                             k.max = 30,
+                                             stand = FALSE, graph = TRUE,
+                                             nboot = 1000, verbose = TRUE, k = NULL)
+
+BIC_ket <- mclust::mclustBIC(df_avg_treatment_t)
+BIC_control <- mclust::mclustBIC(df_avg_control_t)
+
 dist_treatment <- as.dist(1 - cormat_treatment)
 dist_control <- as.dist(1 - cormat_control)
 

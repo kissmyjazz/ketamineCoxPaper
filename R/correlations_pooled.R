@@ -20,6 +20,8 @@ fp_zscore <- here("analysis", "data", "derived_data",
 fp_pos_df <- here("analysis", "data", "derived_data", "control_pos_df.rds")
 fp_neg_df <- here("analysis", "data", "derived_data", "control_neg_df.rds")
 fp_df_avg <- here("analysis", "data", "derived_data", "mids_df_avg")
+fp_negative_pairs <- here("analysis", "data", "derived_data", "negative_pairs.rds")
+fp_positive_pairs <- here("analysis", "data", "derived_data", "positive_pairs.rds")
 
 mids_rf <- readr::read_rds(fp)
 
@@ -138,6 +140,9 @@ regional_df_005_control_negative <- regional_df %>%
 
 names_pos <- names(regional_df_005_control_positive)
 names_neg <- names(regional_df_005_control_negative)
+
+readr::write_rds(names_pos, fp_positive_pairs)
+readr::write_rds(names_neg, fp_negative_pairs)
 
 control_pos_df <- regional_df %>%
   dplyr::filter(p < 0.01 & control_cor > treatment_cor) %>%

@@ -8,7 +8,7 @@ papaja::apa_table(t_tests, escape = TRUE, caption = "Significant t-test results"
 ```
 
 
-After we have performed the Welch's two sample t-test on 10 multiply imputed datasets and pooled the estimates, the mean comparisons in 10 brain regions emerged as statistically significant. The 11th result was barely significant (GP background) and we decided to exclude it from the further analysis, as results in GP was already significantly different. The results of t-test are provided in Table \@ref(tab:table-t-tests). In all significant cases ketamine group rats had higher levels of cytochrome c oxidase activity.
+After we have performed the Welch's two sample t-test on 10 multiply imputed datasets and pooled the estimates, the mean comparisons in 10 brain regions emerged as statistically significant. The 11th result was barely significant (GP background) and we decided to exclude it from the further analysis, as results in GP was already significantly different. The results of t-test comparisons are provided in Table \@ref(tab:table-t-tests). In all significant cases ketamine group rats had higher levels of cytochrome c oxidase activity.
 
 ## Differential correlation analysis
 ```{r dca-overall-p, cache=FALSE, include=FALSE}
@@ -24,7 +24,7 @@ sign_cor_changes %>% dplyr::rename("brain region" = regions, "delta z-score" = z
 ```
 
 
-The average correlation between the two conditions did not differ significantly p = `r papaja::printnum(p_value)`. The regional median changes in correlations are provided in table \@ref(tab:dca-regional-average). The five regions have significantly more negative median correlations with the rest of brain regions in ketamine-treated rats, Locus coeruleus instead showed a borderline significant increase in the median correlation.
+The median correlation between the two conditions did not differ significantly p = `r papaja::printnum(p_value)`. The regional median changes in correlations are provided in table \@ref(tab:dca-regional-average). The five regions have significantly more negative median correlations with the rest of brain regions in ketamine-treated rats. The locus coeruleus instead showed a borderline significant increase in the median correlation.
 
 ```{r dca-pairwise, cache=FALSE, include=FALSE}
 fp_pos_df <- here("analysis", "data", "derived_data", "control_pos_df.rds")
@@ -52,5 +52,16 @@ control_neg_df %>% dplyr::rename("region 1" = region1,
       caption = "Increased pairwise correlations in ketamine rats") %>%
 kable_styling(bootstrap_options = "striped", font_size = 12)
 ```
+
+```{r pairwise-names, include=FALSE}
+fp_negative_pairs <- here("analysis", "data", "derived_data", "negative_pairs.rds")
+fp_positive_pairs <- here("analysis", "data", "derived_data", "positive_pairs.rds")
+names_pos <- readr::read_rds(fp_positive_pairs)
+names_neg <- readr::read_rds(fp_negative_pairs)
+```
+
 For the presentation of significantly changed pairwise correlation coefficients we chose brain regions that exhibited significant change in at least 2 pairs. 
-As for pairwise comparisons between brain regions in `r nrow(control_pos_df)` cases the correlation has become more negative in ketamine rats at p level below 0.01 (table \@ref(tab:table-positive)). Op....5.8. was the brain region with the biggest number of  significant pairwise changes in correlation (8 pairs). The other brain regions in table \@ref(tab:table-positive) had between 2 and 4 pairwise reductions in the correlation coefficients. Conversely, in `r nrow(control_neg_df)` pairs the correlation was increased  after ketamine treatment (table \@ref(tab:table-negative)). 
+As for pairwise comparisons between brain regions in `r nrow(control_pos_df)` cases the positive association was abolished (high positive correlation either became non-significant or negative) in ketamine rats at p level below 0.01 (table \@ref(tab:table-positive)). Op....5.8. was the brain region with the biggest number of significant pairwise changes in correlation (8 pairs). The other brain regions in table \@ref(tab:table-positive) had between 2 and 4 pairwise reductions in the correlation coefficients and were as following: `r sort(names_pos[-10]) %>%  stringi::stri_paste(., collapse = ", ")`. Conversely, in `r nrow(control_neg_df)` pairs the correlation increased after ketamine treatment (table \@ref(tab:table-negative)). Here, the brain regions with 2 pairwise reversals in correlation direction were as following: `r sort(names_neg) %>%  stringi::stri_paste(., collapse = ", ")`.
+
+## Cluster analysis
+We tried several approaches to clustering the data. Neither approach revealed a clear macrostructure in the data. The best fitting number of clusters for both control and ketamine rats was estimated to be 1.  
