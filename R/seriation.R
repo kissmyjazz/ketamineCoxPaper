@@ -7,7 +7,7 @@ library("cluster")
 fp_cormat_control_avg <- here("analysis", "data", "derived_data", "cormat_control_avg.rds")
 fp_cormat_treatment_avg <- here("analysis", "data", "derived_data",
                                 "cormat_treatment_avg.rds")
-fp_df_avg <- here("analysis", "data", "derived_data", "mids_df_avg")
+fp_df_avg <- here("analysis", "data", "derived_data", "mids_df_avg.rds")
 
 # mean results of the imputation
 df_avg <- readr::read_rds(fp_df_avg)

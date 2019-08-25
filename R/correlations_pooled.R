@@ -19,7 +19,7 @@ fp_zscore <- here("analysis", "data", "derived_data",
                           "dgca_imputed_zscore.rds")
 fp_pos_df <- here("analysis", "data", "derived_data", "control_pos_df.rds")
 fp_neg_df <- here("analysis", "data", "derived_data", "control_neg_df.rds")
-fp_df_avg <- here("analysis", "data", "derived_data", "mids_df_avg")
+fp_df_avg <- here("analysis", "data", "derived_data", "mids_df_avg.rds")
 fp_negative_pairs <- here("analysis", "data", "derived_data", "negative_pairs.rds")
 fp_positive_pairs <- here("analysis", "data", "derived_data", "positive_pairs.rds")
 
@@ -147,6 +147,10 @@ readr::write_rds(names_neg, fp_negative_pairs)
 control_pos_df <- regional_df %>%
   dplyr::filter(p < 0.01 & control_cor > treatment_cor) %>%
   dplyr::filter(region1 %in% names_pos | region2 %in% names_pos)
+
+raphe_df <- regional_df %>%
+  dplyr::filter(region1 %in% c("DRD...8.", "MR...8.") &
+                  region2 %in% c("DRD...8.", "MR...8."))
 
 control_neg_df <- regional_df %>%
   dplyr::filter(p < 0.01 & control_cor < treatment_cor) %>%

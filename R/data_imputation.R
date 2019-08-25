@@ -1,10 +1,12 @@
 library(tidyverse)
 library(mice)
 library(here)
+library(rJava)
 
 fp <- here("analysis", "data", "derived_data", "df_ketamine.rds")
 fp_names <- here("analysis", "data", "derived_data", "orig_names.rds")
 fp_imp_names <- here("analysis", "data", "derived_data", "orig_names_imp.rds")
+fp_names_csv <- here("analysis", "data", "derived_data", "190_brain_regions_after_imp.csv")
 
 df <- readr::read_rds(fp)
 orig_names <- readr::read_rds(fp_names)
@@ -23,6 +25,7 @@ names_control  <- df %>% dplyr::filter(treatment == "control") %>%
   select_if(colSums(is.na(.)) <= 2L) %>% colnames()
 
 joint_names <- intersect(names_treatment, names_control)
+readr::write_csv2(as.data.frame(joint_names), fp_names_csv)
 
 full_names_imp <- names[joint_names[-c(1:2)]]
 readr::write_rds(full_names_imp, fp_imp_names)
@@ -36,4 +39,6 @@ fp_df_to_impute_csv <- here("analysis", "data", "derived_data", "df_remote.csv")
 
 readr::write_rds(df_to_impute, fp_df_to_impute)
 readr::write_csv(df_to_impute, fp_df_to_impute_csv)
+
+dyn.load('/Library/Java/JavaVirtualMachines/jdk1.8.0_201.jdk/Contents/Home/jre/lib/server/libjvm.dylib')
 

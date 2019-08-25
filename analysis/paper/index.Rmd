@@ -46,7 +46,13 @@ draft             : no
 documentclass     : "apa6"
 classoption       : "man"
 csl               : "../templates/behavioural-brain-research.csl"
-output            : papaja::apa6_pdf
+output            : 
+  papaja::apa6_pdf:
+    latex_engine: xelatex
+
+header-includes:
+- \usepackage{booktabs}
+- \usepackage{makecell}
 ---
 
 ```{r setup, echo = FALSE, include = FALSE, cache=FALSE}
