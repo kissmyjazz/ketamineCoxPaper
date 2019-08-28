@@ -5,6 +5,10 @@ fp <- here("analysis", "data", "derived_data", "mids_rf.rds")
 fp_table <- here("analysis", "data", "derived_data", "t_tests.rds")
 mids_rf <- readr::read_rds(fp)
 
+# data frame with proper abbreviations and full names
+fp_names <- here("analysis", "data", "raw_data", "brain_regions.csv")
+df_names <- readr::read_csv(fp_names)
+
 # plots an example of variable with 4 missing values
 stripplot(mids_rf, LOT...1.3. ~ .imp, pch = 20, cex = 2,
           xlab = "", ylab = "",
@@ -28,7 +32,9 @@ make_lm <- function(formula, data) {
 
 res <- map_df(formulas, make_lm, .id = 'ROI', data = data)
 res_2 <- res %>% arrange(p.value) %>%
-  dplyr::select("brain region" = ROI, "t" = statistic, df, "p" = p.value,
+  dplyr::left_join(df_names[, c("id", "acronym")], by = c("ROI" = "id")) %>%
+  dplyr::select(-ROI) %>%
+  dplyr::select("brain region" = acronym, "t" = statistic, df, "p" = p.value,
                 "mean difference" = estimate, "se" = std.error,
                 everything()) %>%
   arrange(p) %>% slice(1:10)

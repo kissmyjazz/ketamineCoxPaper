@@ -23,6 +23,10 @@ fp_df_avg <- here("analysis", "data", "derived_data", "mids_df_avg.rds")
 fp_negative_pairs <- here("analysis", "data", "derived_data", "negative_pairs.rds")
 fp_positive_pairs <- here("analysis", "data", "derived_data", "positive_pairs.rds")
 
+# data frame with proper abbreviations and full names
+fp_names <- here("analysis", "data", "raw_data", "brain_regions.csv")
+df_names <- readr::read_csv(fp_names)
+
 mids_rf <- readr::read_rds(fp)
 
 # this block of the code splits imputed data into control and treatment conditions
@@ -104,10 +108,12 @@ median_regional_df <- dgca_results_2 %>%
                        p = pluck(.x, 2, 3))) %>%
   dplyr::group_by(regions) %>%
   summarise(z_score_diff = median(z_score_diff), p = mean(p)) %>%
-  arrange(p)
+  arrange(p) %>% dplyr::slice(1:6) %>% dplyr::mutate_if(is.factor, as.character) %>%
+  dplyr::left_join(df_names[, c("id", "acronym")], by = c("regions" = "id")) %>%
+  dplyr::select(-regions) %>% dplyr::rename("regions" = acronym) %>%
+  dplyr::select(regions, everything())
 
-sign_cor_changes <- median_regional_df %>% slice(1:6)
-readr::write_rds(sign_cor_changes, fp_avg_zscore)
+readr::write_rds(median_regional_df, fp_avg_zscore)
 
 # calculates p value of differential correlation between 2 conditions for all brain
 # regions with all brain regions
@@ -138,23 +144,40 @@ regional_df_005_control_negative <- regional_df %>%
   purrr::transpose() %>% simplify_all() %>% purrr::map( ~purrr::reduce(.x, `+`)) %>%
   purrr::keep(. >= 2)
 
-names_pos <- names(regional_df_005_control_positive)
-names_neg <- names(regional_df_005_control_negative)
+names_pos2 <- names(regional_df_005_control_positive)
+names_pos <- names(regional_df_005_control_positive) %>% enframe() %>%
+  left_join(df_names, by = c("value" = "id")) %>% dplyr::select(acronym) %>% pull(acronym)
+
+names_neg2 <- names(regional_df_005_control_negative)
+names_neg <- names(regional_df_005_control_negative) %>% enframe() %>%
+  left_join(df_names, by = c("value" = "id")) %>% dplyr::select(acronym) %>% pull(acronym)
 
 readr::write_rds(names_pos, fp_positive_pairs)
 readr::write_rds(names_neg, fp_negative_pairs)
 
-control_pos_df <- regional_df %>%
+control_pos_df <- regional_df %>% ungroup() %>%
   dplyr::filter(p < 0.01 & control_cor > treatment_cor) %>%
-  dplyr::filter(region1 %in% names_pos | region2 %in% names_pos)
+  dplyr::filter(region1 %in% names_pos2 | region2 %in% names_pos2) %>%
+  dplyr::mutate_if(is.factor, as.character) %>%
+  dplyr::left_join(df_names[, c("id", "acronym")], by = c("region1" = "id")) %>%
+  dplyr::select(-region1) %>% dplyr::rename("region1" = acronym) %>%
+  dplyr::left_join(df_names[, c("id", "acronym")], by = c("region2" = "id")) %>%
+  dplyr::select(-region2) %>% dplyr::rename("region2" = acronym) %>%
+  dplyr::select(region1, region2, everything())
 
 raphe_df <- regional_df %>%
   dplyr::filter(region1 %in% c("DRD...8.", "MR...8.") &
                   region2 %in% c("DRD...8.", "MR...8."))
 
-control_neg_df <- regional_df %>%
+control_neg_df <- regional_df %>% ungroup() %>%
   dplyr::filter(p < 0.01 & control_cor < treatment_cor) %>%
-  dplyr::filter(region1 %in% names_neg | region2 %in% names_neg)
+  dplyr::filter(region1 %in% names_neg2 | region2 %in% names_neg2) %>%
+  dplyr::mutate_if(is.factor, as.character) %>%
+  dplyr::left_join(df_names[, c("id", "acronym")], by = c("region1" = "id")) %>%
+  dplyr::select(-region1) %>% dplyr::rename("region1" = acronym) %>%
+  dplyr::left_join(df_names[, c("id", "acronym")], by = c("region2" = "id")) %>%
+  dplyr::select(-region2) %>% dplyr::rename("region2" = acronym) %>%
+  dplyr::select(region1, region2, everything())
 
 readr::write_rds(control_pos_df, fp_pos_df)
 readr::write_rds(control_neg_df, fp_neg_df)
