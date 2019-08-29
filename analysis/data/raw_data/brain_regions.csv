@@ -7,6 +7,7 @@ CA1...4.8.,CA1(-4.8),Hippocampal CA1,hippocampal formation
 CA2...4.8.,CA2(-4.8),Hippocampal CA2,hippocampal formation
 CA3...4.8.,CA3(-4.8),Hippocampal CA3,hippocampal formation
 Cg1.2...0.3.,"Cg1, 2(-0.3) ","Cingulate cortex, areas 1 & 2 ",cerebral cortex
+CPU_DM...0.2.,CPuDM(+0.2),"Caudate putamen, dorsomedial",basal ganglia
 CPU_V...0.2.,CPuV(+0.2),"Caudate putamen, ventral ",basal ganglia
 CPu...1.3.,CPu(-1.3),Caudate putamen,basal ganglia
 DG...3.8.,DG(-3.8),Hippocampal dentate gyrus,hippocampal formation
@@ -37,6 +38,7 @@ RSG...4.8.,RSG(-4.8),"Retrosplenial cortex, granular (-4.8) ",cerebral cortex
 RSGa....5.8.,RSGa(-5.8),"Retrosplenial cortex, granular (-5.8) ",cerebral cortex
 RSGb....5.8.,RSGb(-5.8),"Retrosplenial cortex, granular (-5.8) ",cerebral cortex
 RTg...8.,RTg(-8.0),Reticulotegmental nucleus,pons
+Shi...0.2.,Shi(+0.2),Septohippocampal nucleus,septum
 SPTg...8.,SPTg(-8.0),Subpeduncular tegmental nucleus,pons
 SubD...5.8.,SubD(-5.8),"Subiculum, dorsal",hippocampal formation
 SuG....5.8.,SuG(-5.8),"Superior colliculi, superficial gray layer",midbrain

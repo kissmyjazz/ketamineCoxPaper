@@ -57,7 +57,7 @@ control_neg_df %>% dplyr::rename("region 1" = region1,
 kable_styling(bootstrap_options = "striped", font_size = 12)
 ```
 
-```{r pairwise-names, include=FALSE}
+```{r pairwise-names, include=FALSE, cache=FALSE}
 fp_negative_pairs <- here("analysis", "data", "derived_data", "negative_pairs.rds")
 fp_positive_pairs <- here("analysis", "data", "derived_data", "positive_pairs.rds")
 names_pos <- readr::read_rds(fp_positive_pairs)
