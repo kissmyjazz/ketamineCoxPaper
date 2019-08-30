@@ -64,8 +64,36 @@ names_pos <- readr::read_rds(fp_positive_pairs)
 names_neg <- readr::read_rds(fp_negative_pairs)
 ```
 
+(ref:corplot) Graphical representation of changes in correlation coefficients after subchronic
+ketamine treatment. Line segments connect pairs of brain regions with significant difference in correlation scores between the two conditions. The widths of line segments correspond to the magnitude of the difference between two correlation scores.
+
+```{r cor-plot, fig.cap="(ref:corplot)", fig.height=8, fig.width=8}
+g_graph_fp <- here("analysis", "data", "derived_data", "g_graph.rds")
+g <- readr::read_rds(g_graph_fp)
+cor_plot <- g + geom_edge_link(aes(color = direction, width = abs(z_score_diff)),
+                 check_overlap = TRUE) +
+  geom_node_point(aes(color = as.factor(nomenclature)), size = 3) +
+  geom_node_text(aes(label = name), vjust = -0.5, hjust = 0.5, family = "serif") +
+  scale_edge_color_brewer(palette = "Pastel1") +
+  scale_color_brewer(palette = "Set1") + labs(
+    title = "Changes in correlation scores after subchronic ketamine treatment",
+    color = "Brain structures:",
+    edge_color = "Change in pairwise correlations vs. control group:",
+    edge_width = "\u0394 z-score:") +
+  theme_void() + theme(legend.position = "bottom",
+                       legend.box = "vertical",
+                       plot.margin=unit(c(0.5,1,1,1.1),"cm"),
+                       plot.title = element_text(hjust = 0.5, size = 12, face = "bold"),
+                       legend.text = element_text(size=rel(0.9)),
+                       legend.key.width = unit(0.4, "cm"),
+                       legend.key.height = unit(0.5, "cm")) +
+  guides(edge_color = guide_legend(override.aes = list(edge_width = 3, linetype = 0)))
+cor_plot
+```
+
 For the presentation of significantly changed pairwise correlation coefficients we chose brain regions that exhibited significant change in at least 2 pairs. 
-As for pairwise comparisons between brain regions in `r nrow(control_pos_df)` cases the positive association was abolished (high positive correlation either became non-significant or negative) in ketamine rats at p level below 0.01 (table \@ref(tab:table-positive)). Op....5.8. was the brain region with the biggest number of significant pairwise changes in correlation (8 pairs). The other brain regions in table \@ref(tab:table-positive) had between 2 and 4 pairwise reductions in the correlation coefficients and were as following: `r sort(names_pos[-10]) %>%  stringi::stri_paste(., collapse = ", ")`. Conversely, in `r nrow(control_neg_df)` pairs the correlation increased after ketamine treatment (table \@ref(tab:table-negative)). Here, the brain regions with 2 pairwise reversals in correlation direction were as following: `r sort(names_neg) %>%  stringi::stri_paste(., collapse = ", ")`.
+As for pairwise comparisons between brain regions in `r nrow(control_pos_df)` cases the positive association was abolished (high positive correlation either became non-significant or negative) in ketamine rats at p level below 0.01 (table \@ref(tab:table-positive)). Op(-5.8) was the brain region with the biggest number of significant pairwise changes in correlation (8 pairs). The other brain regions in table \@ref(tab:table-positive) had between 2 and 4 pairwise reductions in the correlation coefficients and were as following: `r sort(names_pos[-10]) %>%  stringi::stri_paste(., collapse = ", ")`. Conversely, in `r nrow(control_neg_df)` pairs the correlation increased after ketamine treatment (table \@ref(tab:table-negative)). Here, the brain regions with 2 pairwise reversals in correlation direction were as follows: `r sort(names_neg) %>%  stringi::stri_paste(., collapse = ", ")`.
+The pairwise changes in correlation coefficients after subchronic administration of ketamine are summarised on figure \@ref(fig:cor-plot).
 
 ## Cluster analysis
 We tried several approaches to clustering the data. Neither approach revealed a clear macrostructure in the data. The best fitting number of clusters for both control and ketamine rats was estimated to be 1.  

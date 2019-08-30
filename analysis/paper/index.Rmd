@@ -64,6 +64,9 @@ library("gridExtra")
 library("mice")
 library("here")
 library("kableExtra")
+library("ggraph")
+library("grid")
+library("igraph")
 
 # Seed for random number generation
 set.seed(42)
