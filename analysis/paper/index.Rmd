@@ -102,17 +102,18 @@ theme_set(theme_apa(base_size = 15) + theme(legend.position = "bottom"))
 <!-- This is the format for text comments that will be ignored during renderings. Do not put R code in these comments because it will not be ignored. -->
 
 # Introduction
+The term "schizophrenia" was first used by Bleuler in reference to the separation of function between personality, thinking, memory, and perception of those afflicted with this disorder [@stotz-ingenlathEpistemologicalAspectsEugen2000]. Although prevalence is comparatively low (~0.7%), the direct and indirect costs are high [@chongGlobalEconomicBurden2016], making finding an effective treatment important to both patients and society. Schizophrenia symptoms are divided into three categories: positive (hallucinations, delusions), negative (anhedonia, blunted affect, asociality), and cognitive (impaired executive function and memory). The degree of heritability is high, up to 80% [@harrisonGenesSchizophreniaRecent2003], however the underlying genetics are complex [@harrisonSchizophreniaGenesGene2005]. Many of the genes identified in recent genome-wide association studies are implicated either directly or indirectly in glutamate signaling [@schizophreniaworkinggroupofthepsychiatricgenomicsconsortiumBiologicalInsights1082014, @stotz-ingenlathEpistemologicalAspectsEugen2000]. 
 
-Here is a citation
+Glutamate is the most ubiquitous neurotransmitter in mammalian brain: about 60% of neurons contain glutamate, and virtually all neurons have some type of glutamate receptor. Early pharmacological observations of dissociative anesthetics ketamine and phencyclidine (PCP) have lead to the hypothesis that glutamate plays a causal role in schizophrenia. These drugs affect the brain by blocking a major type of ionotropic glutamate receptor called N-methyl-D-aspartate receptor (NMDAR). Modulation of the postsynaptic NMDARs is crucial for activity-dependent synaptic plasticity and memory. By analogy, a hypofunction of NMDAR-mediated glutamatergic signaling was implicated in the pathophysiology of schizophrenia[@coyleGlutamateSchizophreniaDopamine2006]. Evidence for this hypothesis partly relies on the observation that when normal adults are administered an NMDAR antagonist, such as ketamine, they develop negative, cognitive and positive symptoms like those seen in schizophrenia [@adlerComparisonKetamineinducedThought1999, @krystalSubanestheticEffectsNoncompetitive1994, @newcomerKetamineinducedNMDAReceptor1999] while administration of these compounds to someone with schizophrenia exacerbates their symptoms [@lahtiEffectsKetamineNormal2001]. Furthermore, stimulating NMDAR-mediated signaling using agonists of the glycine modulatory site has been effective in alleviating some of the symptoms of schizophrenia in clinical trials [@heresco-levyPlacebocontrolledTrialDcycloserine2002; @tsaiDserineAddedAntipsychotics1998].
+Despite the early enthusiasm, the therapeutic efficacy of the first generation of antipsychotic drugs that primarily modulate glutamatergic neurotransmission was not great [@buchananCognitiveNegativeSymptoms2007].
 
-# Background
+Both acute and chronic administration of the NMDAR antagonists such as ketamine, PCP, or dizocilpine (MK-801) replicate aspects of schizophrenia in animal models across the three symptom modalities. A subchronic treatment of 7 to 10 days is sufficient to impair declarative and working memory, as well as executive functions in rodents [@badoEffectsLowdoseDserine2011; @liPersistingCognitiveDeficits2011; @neillAnimalModelsCognitive2010]. Negative symptoms are replicated by a reduction of non-aggressive behaviour in the social interaction test [@beckerKetamineinducedChangesRat2004]. Positive symptoms are the hardest to model in rodents. Increased locomotor activity in the open field test supports the diverse effects of NMDAR blockade where some types of behaviour are positively modulated [@gamaEffectsOmega3Dietary2012].
 
 
-# Methods
+# Materials and Methods
 
 ```{r include-methods, child = "02-methods.Rmd"}
 ```
-
 
 
 # Results
@@ -122,6 +123,10 @@ Here is a citation
 
 
 # Discussion
+The decreased
+brain volume in schizophrenia is especially pronounced in cortical areas, as
+well as in the hippocampus (Levitt et al., 2010; Tamminga, Stan, & Wagner,
+2010).
 
 # Conclusion
 
@@ -133,7 +138,7 @@ AuV(-4.8), Auditory cortex, secondary, ventral; B(-1.3), Nucleus basalis; CA1(-4
 
 
 ## Other
-SE, standard error; 
+DCA, differential correlation analysis; NMDAR, N-methyl-D-aspartate receptor; SE, standard error; 
 
 # Acknowledgements
 

@@ -12,7 +12,7 @@ kable(escape = F, col.names = linebreak(c("\nbrain region", "difference of the\n
 ```
 
 
-After we have performed the Welch's two sample t-test on 10 multiply imputed datasets and pooled the estimates, the mean comparisons in `r nrow(t_tests)` brain regions emerged as statistically significant. The 11th result was barely significant (GP background) and we decided to exclude it from the further analysis, as results in GP was already significantly different. The results of t-test comparisons are provided in Table \@ref(tab:table-t-tests). In all significant cases ketamine group rats had higher levels of cytochrome c oxidase activity.
+After we have performed the Welch's two sample t-test on 10 multiply imputed datasets and pooled the estimates, the mean comparisons in `r nrow(t_tests)` brain regions emerged as statistically significant. The results of t-test comparisons are provided in table \@ref(tab:table-t-tests). In all significant comparisons ketamine group rats had higher levels of cytochrome c oxidase activity.
 
 ## Differential correlation analysis
 ```{r dca-overall-p, cache=FALSE, include=FALSE}
@@ -83,7 +83,8 @@ cor_plot <- g + geom_edge_link(aes(color = direction, width = abs(z_score_diff))
   theme_void() + theme(legend.position = "bottom",
                        legend.box = "vertical",
                        plot.margin=unit(c(0.5,1,1,1.1),"cm"),
-                       plot.title = element_text(hjust = 0.5, size = 12, face = "bold"),
+                       plot.title = element_text(hjust = 0.5, size = 12, face = "bold",
+                                                 margin=margin(0,0,20,0)),
                        legend.text = element_text(size=rel(0.9)),
                        legend.key.width = unit(0.4, "cm"),
                        legend.key.height = unit(0.5, "cm")) +
@@ -91,8 +92,7 @@ cor_plot <- g + geom_edge_link(aes(color = direction, width = abs(z_score_diff))
 cor_plot
 ```
 
-For the presentation of significantly changed pairwise correlation coefficients we chose brain regions that exhibited significant change in at least 2 pairs. 
-As for pairwise comparisons between brain regions in `r nrow(control_pos_df)` cases the positive association was abolished (high positive correlation either became non-significant or negative) in ketamine rats at p level below 0.01 (table \@ref(tab:table-positive)). Op(-5.8) was the brain region with the biggest number of significant pairwise changes in correlation (8 pairs). The other brain regions in table \@ref(tab:table-positive) had between 2 and 4 pairwise reductions in the correlation coefficients and were as following: `r sort(names_pos[-10]) %>%  stringi::stri_paste(., collapse = ", ")`. Conversely, in `r nrow(control_neg_df)` pairs the correlation increased after ketamine treatment (table \@ref(tab:table-negative)). Here, the brain regions with 2 pairwise reversals in correlation direction were as follows: `r sort(names_neg) %>%  stringi::stri_paste(., collapse = ", ")`.
+For the presentation of significantly changed pairwise correlation coefficients we chose brain regions that exhibited significant change in at least 2 pairs. In majority of the cases (`r nrow(control_pos_df)`), the positive association was abolished (high positive correlation either became non-significant or negative) in ketamine rats at p level below 0.01 (table \@ref(tab:table-positive)). Op(-5.8) was the brain region with the biggest number of significant pairwise changes in correlation (8 pairs). The other brain regions in table \@ref(tab:table-positive) had between 2 and 4 pairwise reductions in the correlation coefficients and were as follows `r sort(names_pos[-10]) %>%  stringi::stri_paste(., collapse = ", ")`. Conversely, the opposite pattern was observed in `r nrow(control_neg_df)` pairs, where the correlation increased after ketamine adminsitration (table \@ref(tab:table-negative)). Here, the brain regions with 2 pairwise reversals in correlation direction were as follows: `r sort(names_neg) %>%  stringi::stri_paste(., collapse = ", ")`.
 The pairwise changes in correlation coefficients after subchronic administration of ketamine are summarised on figure \@ref(fig:cor-plot).
 
 ## Cluster analysis
