@@ -7,7 +7,7 @@ fp_table <- here::here("analysis", "data", "derived_data", "t_tests.rds")
 t_tests <- readr::read_rds(fp_table) %>% slice(-9) %>% dplyr::mutate(diff = paste(papaja::printnum(`mean difference`), '\u00B1', papaja::printnum(se))) %>% dplyr::select(-(5:8)) %>% dplyr::select(1, starts_with("diff"), everything()) 
 t_tests$p <- papaja::printp(t_tests$p)
 t_tests %>% 
-kable(escape = F, col.names = linebreak(c("\nbrain region", "difference of the\nmeans \u00B1 SE", "\nt", "\ndf", "\np"), align = "c"), booktabs = T, format = "latex", caption = "Significant t-test results") %>% 
+kable(escape = F, col.names = linebreak(c("\nbrain region", "difference of the means\nvs. control \u00B1 SE", "\nt", "\ndf", "\np"), align = "c"), booktabs = T, format = "latex", caption = "Significant t-test results") %>% 
   kable_styling(bootstrap_options = "striped", font_size = 12)
 ```
 
