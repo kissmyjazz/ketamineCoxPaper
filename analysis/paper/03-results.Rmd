@@ -7,7 +7,8 @@ fp_table <- here::here("analysis", "data", "derived_data", "t_tests.rds")
 t_tests <- readr::read_rds(fp_table) %>% slice(-9) %>% dplyr::mutate(diff = paste(papaja::printnum(`mean difference`), '\u00B1', papaja::printnum(se))) %>% dplyr::select(-(5:8)) %>% dplyr::select(1, starts_with("diff"), everything()) 
 t_tests$p <- papaja::printp(t_tests$p)
 t_tests %>% 
-kable(escape = F, col.names = linebreak(c("\nbrain region", "difference of the means\nvs. control \u00B1 SE", "\nt", "\ndf", "\np"), align = "c"), booktabs = T, format = "latex", caption = "Significant t-test results") %>% 
+kable(escape = F, col.names = linebreak(c("\nbrain region", "difference of the means\nvs. control \u00B1 SE", "\nt", "\ndf", "\np"), align = "c"), booktabs = T, format = "latex",
+      digits = 3, caption = "Significant t-test results") %>% 
   kable_styling(bootstrap_options = "striped", font_size = 12)
 ```
 
@@ -42,7 +43,7 @@ control_pos_df$p <- papaja::printp(control_pos_df$p)
 control_pos_df %>% dplyr::rename("region 1" = region1,
   "region 2" = region2, "\u0394 z-score" = z_score_diff, "r control" = control_cor, 
   "r ketamine" = treatment_cor) %>% 
-  kable(booktabs = T, format = "latex", longtable = TRUE,
+  kable(booktabs = T, format = "latex", longtable = TRUE, digits = 3, 
       caption = "Decreased pairwise correlations in ketamine rats") %>%
 kable_styling(bootstrap_options = "striped", font_size = 12, latex_options = "repeat_header")
 ```
@@ -52,7 +53,7 @@ control_neg_df$p <- papaja::printp(control_neg_df$p)
 control_neg_df %>% dplyr::rename("region 1" = region1,
   "region 2" = region2, "\u0394 z-score" = z_score_diff, "r control" = control_cor, 
   "r ketamine" = treatment_cor) %>% 
-  kable(booktabs = T, format = "latex", longtable = TRUE,
+  kable(booktabs = T, format = "latex", longtable = TRUE, digits = 3, 
       caption = "Increased pairwise correlations in ketamine rats") %>%
 kable_styling(bootstrap_options = "striped", font_size = 12)
 ```
@@ -79,7 +80,7 @@ cor_plot <- g + geom_edge_link(aes(color = direction, width = abs(z_score_diff))
     title = "Changes in correlation scores after subchronic ketamine treatment",
     color = "Brain structures:",
     edge_color = "Change in pairwise correlations vs. control group:",
-    edge_width = "\u0394 z-score:") +
+    edge_width = "Delta z-score:", parse = TRUE) +
   theme_void() + theme(legend.position = "bottom",
                        legend.box = "vertical",
                        plot.margin=unit(c(0.5,1,1,1.1),"cm"),
