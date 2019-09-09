@@ -109,8 +109,8 @@ median_regional_df <- dgca_results_2 %>%
   dplyr::group_by(regions) %>%
   summarise(z_score_diff = median(z_score_diff), p = mean(p)) %>%
   arrange(p) %>% dplyr::slice(1:6) %>% dplyr::mutate_if(is.factor, as.character) %>%
-  dplyr::left_join(df_names[, c("id", "acronym")], by = c("regions" = "id")) %>%
-  dplyr::select(-regions) %>% dplyr::rename("regions" = acronym) %>%
+  dplyr::left_join(df_names[, c("id", "full_name")], by = c("regions" = "id")) %>%
+  dplyr::select(-regions) %>% dplyr::rename("regions" = full_name) %>%
   dplyr::select(regions, everything())
 
 readr::write_rds(median_regional_df, fp_avg_zscore)

@@ -32,9 +32,9 @@ make_lm <- function(formula, data) {
 
 res <- map_df(formulas, make_lm, .id = 'ROI', data = data)
 res_2 <- res %>% arrange(p.value) %>%
-  dplyr::left_join(df_names[, c("id", "acronym")], by = c("ROI" = "id")) %>%
+  dplyr::left_join(df_names[, c("id", "full_name")], by = c("ROI" = "id")) %>%
   dplyr::select(-ROI) %>%
-  dplyr::select("brain region" = acronym, "t" = statistic, df, "p" = p.value,
+  dplyr::select("brain region" = full_name, "t" = statistic, df, "p" = p.value,
                 "mean difference" = estimate, "se" = std.error,
                 everything()) %>%
   arrange(p) %>% slice(1:10)

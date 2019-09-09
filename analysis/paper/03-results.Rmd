@@ -6,10 +6,13 @@ fp_table <- here::here("analysis", "data", "derived_data", "t_tests.rds")
 # remove Cpu_background...1.3.
 t_tests <- readr::read_rds(fp_table) %>% slice(-9) %>% dplyr::mutate(diff = paste(papaja::printnum(`mean difference`), '\u00B1', papaja::printnum(se))) %>% dplyr::select(-(5:8)) %>% dplyr::select(1, starts_with("diff"), everything()) 
 t_tests$p <- papaja::printp(t_tests$p)
-t_tests %>% 
-kable(escape = F, col.names = linebreak(c("\nbrain region", "difference of the means\nvs. control \u00B1 SE", "\nt", "\ndf", "\np"), align = "c"), booktabs = T, format = "latex",
-      digits = 3, caption = "Significant t-test results") %>% 
-  kable_styling(bootstrap_options = "striped", font_size = 12)
+colnames(t_tests) <- c("\nbrain region", "difference of the means\nvs. control \u00B1 SE", "\nt", "\ndf", "\np")
+t_tests %>%
+kable(escape = T, booktabs = T, format = "latex", align = rep("l", 5),
+      digits = 3, caption = "Significant t-test results") %>%
+  kable_styling(bootstrap_options = "striped", 
+                latex_options="scale_down", font_size = 12) %>% 
+  column_spec(1, "18em") %>% column_spec(2, "10em")
 ```
 
 
@@ -93,8 +96,6 @@ cor_plot <- g + geom_edge_link(aes(color = direction, width = abs(z_score_diff))
 cor_plot
 ```
 
-For the presentation of significantly changed pairwise correlation coefficients we chose brain regions that exhibited significant change in at least 2 pairs. In majority of the cases (`r nrow(control_pos_df)`), the positive association was abolished (high positive correlation either became non-significant or negative) in ketamine rats at p level below 0.01 (table \@ref(tab:table-positive)). Op(-5.8) was the brain region with the biggest number of significant pairwise changes in correlation (8 pairs). The other brain regions in table \@ref(tab:table-positive) had between 2 and 4 pairwise reductions in the correlation coefficients and were as follows `r sort(names_pos[-10]) %>%  stringi::stri_paste(., collapse = ", ")`. Conversely, the opposite pattern was observed in `r nrow(control_neg_df)` pairs, where the correlation increased after ketamine adminsitration (table \@ref(tab:table-negative)). Here, the brain regions with 2 pairwise reversals in correlation direction were as follows: `r sort(names_neg) %>%  stringi::stri_paste(., collapse = ", ")`.
+For the presentation of significantly changed pairwise correlation coefficients we chose brain regions that exhibited significant change in at least 2 pairs. In majority of the cases (`r nrow(control_pos_df)`), the positive association was abolished (high positive correlation either became non-significant or negative) in ketamine rats at p level below 0.01 (table \@ref(tab:table-positive)). Optic nerve layer of the superior colliculi was the brain region with the biggest number of significant pairwise changes in correlation (8 pairs). The other brain regions in table \@ref(tab:table-positive) had between 2 and 4 pairwise reductions in the correlation coefficients and were as follows `r sort(names_pos[-10]) %>%  stringi::stri_paste(., collapse = ", ")`. Conversely, the opposite pattern was observed in `r nrow(control_neg_df)` pairs, where the correlation increased after ketamine adminsitration (table \@ref(tab:table-negative)). Here, the brain regions with 2 pairwise reversals in correlation direction were as follows: `r sort(names_neg) %>%  stringi::stri_paste(., collapse = ", ")`.
 The pairwise changes in correlation coefficients after subchronic administration of ketamine are summarised on figure \@ref(fig:cor-plot).
 
-## Cluster analysis
-We tried several approaches to clustering the data. Neither approach revealed a clear macrostructure in the data. The best fitting number of clusters for both control and ketamine rats was estimated to be 1.  
