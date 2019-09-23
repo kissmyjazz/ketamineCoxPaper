@@ -4,19 +4,18 @@
 ```{r table-t-tests, cache=FALSE, results="asis"}
 fp_table <- here::here("analysis", "data", "derived_data", "t_tests.rds")
 # remove Cpu_background...1.3.
-t_tests <- readr::read_rds(fp_table) %>% slice(-9) %>% dplyr::mutate(diff = paste(papaja::printnum(`mean difference`), '\u00B1', papaja::printnum(se))) %>% dplyr::select(-(5:8)) %>% dplyr::select(1, starts_with("diff"), everything()) 
-t_tests$p <- papaja::printp(t_tests$p)
-colnames(t_tests) <- c("\nbrain region", "difference of the means\nvs. control \u00B1 SE", "\nt", "\ndf", "\np")
+t_tests <- readr::read_rds(fp_table) %>% slice(-9) %>% dplyr::mutate(diff = papaja::printnum(`mean difference`)) %>% dplyr::select(-(5:8)) %>% dplyr::select(1, starts_with("diff"), everything()) 
+colnames(t_tests) <- c("\nBrain region", "difference of the means vs. control", "\nt", "\ndf", "\np")
 t_tests %>%
 kable(escape = T, booktabs = T, format = "latex", align = rep("l", 5),
-      digits = 3, caption = "Significant t-test results") %>%
+      digits = 3, caption = "Brain regions with increased COX levels ($\\mu$mol/min/gram tissue) after subchronic ketamine treatment") %>%
   kable_styling(bootstrap_options = "striped", 
                 latex_options="scale_down", font_size = 12) %>% 
-  column_spec(1, "18em") %>% column_spec(2, "10em")
+  column_spec(1, "18em") %>% column_spec(2, "8em")
 ```
 
 
-After we have performed the Welch's two sample t-test on 10 multiply imputed datasets and pooled the estimates, the mean comparisons in `r nrow(t_tests)` brain regions emerged as statistically significant. The results of t-test comparisons are provided in table \@ref(tab:table-t-tests). In all significant comparisons ketamine group rats had higher levels of cytochrome c oxidase activity.
+After we have performed the Welch's two sample t-test on 10 multiply imputed datasets and pooled the estimates, the mean comparisons in `r nrow(t_tests)` brain regions emerged as statistically significant. The results of t-test comparisons are provided in Table \@ref(tab:table-t-tests). In all significant comparisons ketamine group rats had higher levels of COX activity.
 
 ## Differential correlation analysis
 ```{r dca-overall-p, cache=FALSE, include=FALSE}
@@ -27,12 +26,11 @@ p_value <- readr::read_rds(fp_overall_pvalue)
 ```{r dca-regional-average, cache=FALSE, results="asis"}
 fp_avg_zscore <- here::here("analysis", "data", "derived_data", "dgca_imputed_ave_zscore.rds")
 sign_cor_changes <- readr::read_rds(fp_avg_zscore)
-sign_cor_changes$p <- papaja::printp(sign_cor_changes$p)
-sign_cor_changes %>% dplyr::rename("brain region" = regions, "\u0394 z-score" = z_score_diff) %>% papaja::apa_table(escape = FALSE, caption = "Regional median changes in correlation")
+sign_cor_changes %>% dplyr::rename("Brain region" = regions, "\u0394 z-score" = z_score_diff) %>% papaja::apa_table(escape = FALSE, caption = "Regional median changes in correlation coefficients")
 ```
 
 
-The median correlation between the two conditions did not differ significantly p = `r papaja::printnum(p_value)`. The regional median changes in correlations are provided in table \@ref(tab:dca-regional-average). The five regions have significantly more negative median correlations with the rest of brain regions in ketamine-treated rats. The locus coeruleus instead showed a borderline significant increase in the median correlation.
+The median correlation between the two conditions did not differ significantly p = `r papaja::printnum(p_value)`. The regional median changes in correlations are provided in Table \@ref(tab:dca-regional-average). Five brain regions had significantly more negative median correlations with the rest of brain regions in ketamine-treated rats. The locus coeruleus instead showed a borderline significant increase in the median correlation.
 
 ```{r dca-pairwise, cache=FALSE, include=FALSE}
 fp_pos_df <- here("analysis", "data", "derived_data", "control_pos_df.rds")
@@ -42,7 +40,6 @@ control_neg_df <- readr::read_rds(fp_neg_df)
 ```
 
 ```{r table-positive, cache=FALSE, results="asis"}
-control_pos_df$p <- papaja::printp(control_pos_df$p)
 control_pos_df %>% dplyr::rename("region 1" = region1,
   "region 2" = region2, "\u0394 z-score" = z_score_diff, "r control" = control_cor, 
   "r ketamine" = treatment_cor) %>% 
@@ -52,7 +49,6 @@ kable_styling(bootstrap_options = "striped", font_size = 12, latex_options = "re
 ```
 
 ```{r table-negative, cache=FALSE, results="asis"}
-control_neg_df$p <- papaja::printp(control_neg_df$p) 
 control_neg_df %>% dplyr::rename("region 1" = region1,
   "region 2" = region2, "\u0394 z-score" = z_score_diff, "r control" = control_cor, 
   "r ketamine" = treatment_cor) %>% 

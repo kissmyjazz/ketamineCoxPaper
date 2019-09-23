@@ -1,0 +1,191 @@
+joint_names,full_name,full_name2
+Aco...1.8.,Cortical amygdala (-1.8),
+AD...1.8.,Anterodorsal thalamic nucleus (-1.8),
+AHC...1.8.,Anterior hypothalamic area,central (-1.8)
+AHiAL...3.8.,Amygdalohippocampal nucleus,anterolateral (-3.8)
+AHP...1.8.,Anterior hypothalamic area,posterior (-1.8)
+AI...3.7.,Agranular insular cortex (+3.7),
+AIP...0.3.,Agranular insular cortex (-0.3),
+AOD...4.2.,Anterior olfactory n.,dorsal (+4.2)
+AOL...4.2.,Anterior olfactory n.,lateral (+4.2)
+AOV...4.2.,Anterior olfactory n.,ventral (+4.2)
+APir...4.8.,Amygdalopiriform transition area (-4.8),
+APT...4.8.,Anterior pretectal nucleus (-4.8),
+Arc...3.8.,Arcuate hypothalamic nucleus,posterior (-3.8)
+Au1...3.8.,Primary auditory cortex (-3.8),
+Au1...4.8.,Primary auditory cortex (-4.8),
+AuD...3.8.,Secondary auditory cortex,dorsal (-3.8)
+AuD...4.8.,Secondary auditory cortex,dorsal(-4.8)
+AuV...3.8.,Secondary auditory cortex,ventral (-3.8)
+AuV...4.8.,Secondary auditory cortex,ventral (-4.8)
+AVDM...1.8.,Anteroventral thalamic nucleus,dorsomedial (-1.8)
+AVVL...1.8.,Anteroventral thalamic nucleus,ventrolateral (-1.8)
+B_background...1.3.,Nucleus basalis (-1.3),
+B...1.3.,Nucleus basalis (-1.3),
+BLA...1.8.,Basolateral amygdala,anterior (-1.8)
+BLA...2.3.,Basolateral amygdala,anterior (-2.3)
+BLP...3.8.,Basomedial amygdala,posterior (-3.8)
+BMA...1.8.,Basomedial amygdala,anterior (-1.8)
+BMA...2.3.,Basomedial amygdala,anterior (-2.3)
+BMP...3.8.,Basolateral amygdala,posterior (-3.8)
+BNST_MA...0.2.,Bed nucleus of stria terminalis,anterior medial (+0.2)
+CA1...3.8.,Hippocampal CA1 (-3.8),
+CA1...4.8.,Hippocampal CA1 (-4.8),
+CA2...3.8.,Hippocampal CA2 (-3.8),
+CA2...4.8.,Hippocampal CA2 (-4.8),
+CA3...3.8.,Hippocampal CA3 (-3.8),
+CA3...4.8.,Hippocampal CA3 (-4.8),
+CeC...1.8.,Central amygdala,central (-1.8)
+CeL...1.8.,Central amygdala,lateral (-1.8)
+CeL...2.3.,Central amygdala,lateral (-2.3)
+CeM...1.8.,Central amygdala,medial (-1.8)
+Cg1.2...0.3.,Anterior cingulate cortex (-0.3),
+CG1.ACC...3.7.,Anterior cingulate cortex (+3.7),
+CG3.Prelimbic...3.7.,Prelimbic cortex (+3.7),
+Cl...2.2.,Claustrum (+2.2),
+CM...2.12.,Centromedial thalamic nucleus (-2.12),
+Cortex...10.04.,Cerebellar cortex (-10.04),
+Cpu_background...1.3.,Caudate putamen (-1.3),
+CPU_DL...0.2.,Caudate putamen,dorsolateral (+0.2)
+CPU_DM...0.2.,Caudate putamen,dorsomedial (+0.2)
+CPU_V...0.2.,Caudate putamen,ventral (+0.2)
+CPu...1.3.,Caudate putamen (-1.3),
+DEn...0.2.,Dorsal endopiriform nucleus (+0.2),
+DEn...1.8.,Dorsal endopiriform nucleus (-1.8),
+DG...3.8.,Hippocampal dentate gyrus (-3.8),
+DG...4.8.,Hippocampal dentate gyrus (-4.8),
+DLG...4.8.,Dorsal lateral geniculate (-4.8),
+DLPAG....5.8.,Dorsolateral periaqueductal gray (-5.8),
+DMPAG....5.8.,Dorsomedial periaqueductal gray (-5.8),
+DMPAG...8.,Dorsomedial periaqueductal gray (-8.0),
+Dp....5.8.,Superior colliculi,deep gray/white layer (-5.8)
+DP..2.2.,Dorsal peduncular cortex (+2.2),
+DRD...8.,Dorsal raphe,dorsal (-8.0)
+ECIC...8.,Inferior colliculi,external cortex (-8.0)
+Ect...4.8.,Ectorhinal cortex (-4.8),
+GI.DI...0.3.,Granular/dysgranular insular cortex (-0.3),
+GP_background...1.3.,Globus pallidus (-1.3),
+GP...1.3.,Globus pallidus (-1.3),
+HDB...0.2.,Nucleus of diagonal band,horizontal (+0.2)
+IL..2.2.,Infralimbic cortex (+2.2),
+InG....5.8.,Superior colliculi,intermediate gray layer (-5.8)
+InWh....5.8.,Superior colliculi,intermediate white layer (-5.8)
+LaDL...3.8.,Lateral amygdaloid nucleus,dorsolateral (-3.8)
+LaVM...3.8.,Lateral amygdaloid nucleus,ventromedial (-3.8)
+LC...10.04.,Locus coeruleus (-10.04),
+Ld...0.2.,Lambdoid septal zone (+0.2),
+LDVL...2.3.,Laterodorsal thalamic nucleus,dorsomedial (-2.3)
+LEnt...4.8.,Lateral entorhinal cortex (-4.8),
+LH...1.8.,Lateral hypothalamic nucleus (-1.8),
+LH...2.3.,Lateral hypothalamic nucleus (-2.3),
+LHbL...3.8.,Lateral habenula,lateral (-3.8)
+LHbM...3.8.,Lateral habenula,medial (-3.8)
+LM...4.8.,Lateral mamillary (-4.8),
+LO...3.7.,Lateral orbital cortex (+3.7),
+LOT...1.3.,Lateral olfactory tract nucleus (-1.3),
+LP...4.8.,Lateral posterior nucleus (-4.8),
+LPAG....5.8.,Lateral periaqueductal gray (-5.8),
+LPMR...3.8.,Lateral posterior thalamus,mediorostral (-3.8)
+LPO...0.3.,Lateral preoptic nucleus (-0.3),
+LSD...0.2.,Lateral septal nucleus,dorsal (+0.2)
+LSD...0.3.,Lateral septal nucleus,dorsal (-0.3)
+LSI...0.2.,Lateral septal nucleus,intermediate (+0.2)
+LSV...0.2.,Lateral septal nucleus,ventral (+0.2)
+M1...0.3.,Motor cortex,primary (-0.3)
+M2...0.3.,Motor cortex,secondary (-0.3)
+M2...3.7.,Secondary motor cortex (+3.7),
+MCPO...0.3.,Magnocellular preoptic nucleus (-0.3),
+MDM...2.12.,Mediodorsal thalamic nucleus,medial (-2.12)
+MeAD...1.8.,Medial amygdala,anterodorsal (-1.8)
+MGD....5.8.,Medial geniculate,dorsal (-5.8)
+MGV....5.8.,Medial geniculate,ventral (-5.8)
+MHb...3.8.,Medial habenula (-3.8),
+MITg...8.,Microcellular tegmental nucleus (-8.0),
+ML...4.8.,Medial mamillary,lateral (-4.8)
+MM...4.8.,Medial mamillary,medial (-4.8)
+MO...3.7.,Medial orbital cortex (+3.7),
+MPA...0.3.,Medial preoptic area (-0.3),
+MPN...0.3.,Median preoptic nucleus (-0.3),
+MPOL...0.3.,Medial preoptic nucleus,lateral (-0.3)
+MR...8.,Median raphe (-8.0),
+MS...0.2.,Medial septum (+0.2),
+NAccC...2.2.,Nucleus accumbens,core (+2.2)
+NAccS..2.2.,Nucleus accumbens,shell (+2.2)
+Op....5.8.,Superior colliculi,optic nerve layer (-5.8)
+PeVH...2.12.,Periventricular hypothalamus (-2.12),
+PeVH...2.3.,Periventricular hypothalamus (-2.3),
+PH...3.8.,Posterior hypothalamic nucleus (-3.8),
+Pir...0.2.,Piriform cortex (+0.2),
+Pir...1.3.,Piriform cortex (-1.3),
+Pir...2.3.,Piriform cortex (-2.3),
+PLd...0.2.,Paralambdoid septal nucleus (+0.2),
+PMCo...3.8.,Posteromedial cortical amygdala (-3.8),
+PMR...8.,Paramedian raphe nucleus (-8.0),
+PN...8.,Pontine nuclei (-8.0),
+PnO...8.,Pontine reticular nucleus,oral (-8.0)
+Po...3.8.,Posterior thalamic nuclear group (-3.8),
+PPTg...8.,Pedunculopontine tegmental nucleus (-8.0),
+PR...4.8.,Prerubral field (-4.8),
+PRh...3.8.,Perirhinal cortex (-3.8),
+PrL...2.2.,Prelimbic cortex (+2.2),
+PT...1.3.,Paratenial thalamic nucleus (-1.3),
+PtA...3.8.,Parietal association cortex (medial and lateral) (-3.8),
+PtA...4.8.,Parietal association cortex (-4.8),
+PVA...2.12.,Paraventricular thalamic nucleus,anterior (-2.12)
+PVH...1.8.,Paraventricular hypothalamus (-1.8),
+PVP...3.8.,Paraventricular thalamic nucleus,posterior (-3.8)
+R....5.8.,Nucleus ruber (-5.8),
+Re...1.8.,Nucleus reuniens (-1.8),
+RSA....5.8.,Retrosplenial cortex,agranular (-5.8)
+RSA...2.12.,Retrosplenial cortex,agranular (-2.12)
+RSA...4.8.,Retrosplenial cortex,granular (-4.8)
+RSG...2.12.,Retrosplenial cortex,granular (-2.12)
+RSG...4.8.,Retrosplenial cortex,agranular (-4.8)
+RSGa....5.8.,Retrosplenial cortex,granular a  (-5.8)
+RSGb....5.8.,Retrosplenial cortex,granular b (-5.8)
+Rt...1.3.,Reticular thalamus (-1.3),
+Rt...2.12.,Reticular thalamus (-2.12),
+Rt...2.3.,Reticular thalamus (-2.3),
+RTg...8.,Reticulotegmental nucleus (-8.0),
+S1BF...0.3.,Somatosensory primary cortex,barrel field (-0.3)
+S1DZ...0.3.,Somatosensory primary cortex,dysgranular zone (-0.3)
+S1FL...0.3.,Somatosensory primary cortex,frontlimb (-0.3)
+S1HL...0.3.,Somatosensory primary cortex,hindlimb (-0.3)
+S1J...2.2.,Somatosensory primary cortex (jaw) (+2.2),
+S1UL...0.2.,Somatosensory primary cortex,upper lip (+0.2)
+S2...0.3.,Somatosensory cortex,secondary (-0.3)
+Sch...1.3.,Suprachiasmatic nucleus (-1.3),
+Shi...0.2.,Septohippocampal nucleus (+0.2),
+SI...1.3.,Substantia innominata (-1.3),
+SI...1.8.,Substantia innominata (-1.8),
+SNC....5.8.,Substantia nigra,compacta (-5.8)
+SNR....5.8.,Substantia nigra,reticularis (-5.8)
+SNR...4.8.,Substantia nigra,reticular (-4.8)
+SO...1.3.,Supraoptic nucleus (-1.3),
+SPTg...8.,Subpeduncular tegmental nucleus (-8.0),
+SubD...5.8.,Subiculum,dorsal (-5.8)
+SuG....5.8.,Superior colliculi,superficial gray layer (-5.8)
+SuM...4.8.,Superior/retro MM (-4.8),
+TeA...4.8.,Temporal association cortex (-4.8),
+Tu...0.2.,Olfactory tubercle (+0.2),
+V1...8.,Primary visual cortex (-5.8),
+V1B...8.,Primary visual cortex,binocular (-8.0)
+V1M...8.,Primary visual cortex,monocular (-8.0)
+V2...4.8.,Visual cortex,secondary (-4.8)
+V2L...8.,Secondary visual cortex,lateral (-8.0)
+V2MM...8.,Secondary visual cortex,medial (-8.0)
+VA...1.8.,Ventral anterior thalamic nucleus (-1.8),
+VDB...0.2.,Nucleus of diagonal band,vertical (+0.2)
+VEn...1.8.,Ventral entopiriform nucleus (-1.8),
+Vermis...10.04.,Cerebellar vermis (-10.04),
+VLTg...8.,Ventrolateral tegmental nucleus (-8.0),
+VM...2.3.,Ventromedial thalamic nucleus (-2.3),
+VMH...2.3.,Ventromedial hypothalamic nucleus (-2.3),
+VO...3.7.,Ventral orbital cortex (+3.7),
+VP...0.2.,Ventral pallidum (+0.2),
+VPL...2.3.,Ventral posterolateral thalamic nucleus (-2.3),
+VTA....5.8.,Ventral tegmental area (-5.8),
+ZI...2.12.,Zona inserta (-2.12),
+ZI...2.3.,Zona inserta (-2.3),
+ZID...3.8.,Zona inserta,dorsal (-3.8)
+ZIV...3.8.,Zona inserta,ventral (-3.8)

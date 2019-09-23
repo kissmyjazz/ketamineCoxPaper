@@ -3,6 +3,7 @@ library("mice")
 library("mitools")
 library("DGCA")
 library("here")
+library("corrr")
 
 fp <- here("analysis", "data", "derived_data", "mids_rf.rds")
 fp_cormat_treatment <- here("analysis", "data", "derived_data", "cormat_treatment.rds")
@@ -22,12 +23,15 @@ fp_neg_df <- here("analysis", "data", "derived_data", "control_neg_df.rds")
 fp_df_avg <- here("analysis", "data", "derived_data", "mids_df_avg.rds")
 fp_negative_pairs <- here("analysis", "data", "derived_data", "negative_pairs.rds")
 fp_positive_pairs <- here("analysis", "data", "derived_data", "positive_pairs.rds")
+fp_full_names <- here("analysis", "data", "raw_data", "190_brain_regions_full_names.csv")
 
 # data frame with proper abbreviations and full names
 fp_names <- here("analysis", "data", "raw_data", "brain_regions.csv")
 df_names <- readr::read_csv(fp_names)
 
 mids_rf <- readr::read_rds(fp)
+
+fp_pos_heatmap <- here("analysis", "figures", "pos_heatmap.pdf")
 
 # this block of the code splits imputed data into control and treatment conditions
 mids_df <- mids_rf %>% mice::complete(action = "long", include = TRUE) %>%
@@ -144,6 +148,9 @@ regional_df_005_control_negative <- regional_df %>%
   purrr::transpose() %>% simplify_all() %>% purrr::map( ~purrr::reduce(.x, `+`)) %>%
   purrr::keep(. >= 2)
 
+names_pos_p05 <- names(regional_df_05_control_positive)
+names_neg_p05 <- names(regional_df_05_control_negative)
+
 names_pos2 <- names(regional_df_005_control_positive)
 names_pos <- names(regional_df_005_control_positive) %>% enframe() %>%
   left_join(df_names, by = c("value" = "id")) %>% dplyr::select(acronym) %>% pull(acronym)
@@ -164,6 +171,39 @@ control_pos_df <- regional_df %>% ungroup() %>%
   dplyr::left_join(df_names[, c("id", "acronym")], by = c("region2" = "id")) %>%
   dplyr::select(-region2) %>% dplyr::rename("region2" = acronym) %>%
   dplyr::select(region1, region2, everything())
+
+# data frame with full names from Margus
+full_names_df <- read_csv(fp_full_names) %>% dplyr::select(joint_names, full_name, full_name2) %>%
+  dplyr::mutate(full_name2 = str_replace_na(full_name2, replacement = ""),
+                full_name3 = str_trim(str_c(full_name, full_name2, sep = ", ")) %>%
+                  str_remove(pattern = ",$")) %>% dplyr::select(joint_names, full_name3)
+
+# at p = 0.05
+control_p05_df <- regional_df %>% ungroup() %>%
+  dplyr::filter(p < 0.05) %>%
+  dplyr::mutate_if(is.factor, as.character)  %>%
+  dplyr::filter(str_detect(region1, "background", negate = TRUE) &
+                  str_detect(region2, "background", negate = TRUE)) %>%
+  left_join(full_names_df, by = c("region1" = "joint_names")) %>% dplyr::select(-region1) %>%
+  rename(region1 = full_name3) %>%
+  left_join(full_names_df, by = c("region2" = "joint_names")) %>% dplyr::select(-region2) %>%
+  rename(region2 = full_name3) %>% dplyr::select(region1, region2, z_score_diff)
+
+
+p05_df <- rbind(control_p05_df[, 1:3], control_p05_df[, c(2, 1, 3)] %>%
+                      rename("region1" = region2, "region2"=region1))
+completed_p05_df <- p05_df %>% tidyr::complete(region1, region2, fill = (list(z_score_diff = 0)))
+
+completed_p05_cor_df <- corrr::retract(.data = completed_p05_df, x = region1, y = region2,
+                                           val = z_score_diff)
+completed_p05_cor_mat <- as_matrix(as_cordf(completed_p05_cor_df))
+
+pdf(fp_pos_heatmap, height = 12, width = 12, useDingbats = FALSE)
+corrplot(completed_p05_cor_mat, is.corr = FALSE, method = "color", tl.col = "black", tl.cex = 0.42,
+         order = "alphabet", diag = FALSE,
+         title = expression(paste("Heatmap of changes in pairwise correlations expressed as ", Delta,
+         " z-scores at p < 0.05")), mar = c(1, 1, 3, 1), cex.main = 1.6)
+dev.off()
 
 raphe_df <- regional_df %>%
   dplyr::filter(region1 %in% c("DRD...8.", "MR...8.") &

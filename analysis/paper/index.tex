@@ -23,9 +23,9 @@
 }{}
 \usepackage{hyperref}
 \hypersetup{unicode=true,
-            pdftitle={Cytochrome c oxidase metabolic mapping in a chronic ketamine administration model},
+            pdftitle={Cytochrome c oxidase metabolic mapping in a subchronic ketamine administration model},
             pdfauthor={Denis Matrov, Sophie Imbeault, Margus Kanarik, Marianna Shkolnaya, Patricia Schikorra, Ergo Miljan, Ruth Shimmo, \& Jaanus Harro},
-            pdfkeywords={rats; cytochrome oxidase; ketamine},
+            pdfkeywords={cytochrome oxidase; histochemistry; ketamine; rats},
             pdfborder={0 0 0},
             breaklinks=true}
 \urlstyle{same}  % don't use monospace font for urls
@@ -63,15 +63,15 @@
 \def\footnote{\protect\rmarkdownfootnote}
 
 
-  \title{Cytochrome c oxidase metabolic mapping in a chronic ketamine administration model}
-    \author{Denis Matrov\textsuperscript{1,3}, Sophie Imbeault\textsuperscript{2}, Margus Kanarik\textsuperscript{3}, Marianna Shkolnaya\textsuperscript{2}, Patricia Schikorra\textsuperscript{2}, Ergo Miljan\textsuperscript{2}, Ruth Shimmo\textsuperscript{2}, \& Jaanus Harro\textsuperscript{3}}
+  \title{Cytochrome c oxidase metabolic mapping in a subchronic ketamine administration model}
+    \author{Denis Matrov\textsuperscript{1,3,*}, Sophie Imbeault\textsuperscript{2,*}, Margus Kanarik\textsuperscript{3}, Marianna Shkolnaya\textsuperscript{2}, Patricia Schikorra\textsuperscript{2}, Ergo Miljan\textsuperscript{2}, Ruth Shimmo\textsuperscript{2}, \& Jaanus Harro\textsuperscript{3}}
     \date{}
   
-\shorttitle{cytochrome oxidase after chronic ketamine}
+\shorttitle{Oxidative metabolism after subchronic ketamine}
 \affiliation{
 \vspace{0.5cm}
-\textsuperscript{1} Department of Neuroscience, Graduate School of Medicine, Kyoto University, Kyoto, Japan\\\textsuperscript{2} Tallinn University Centre of Excellence in Neural and Behavioural Sciences, School of Natural Sciences and Health, Tallinn University, Tallinn, Estonia\\\textsuperscript{3} Division of Neuropsychopharmacology, Department of Psychology, University of Tartu, Tartu, Estonia}
-\keywords{rats, cytochrome oxidase, ketamine\newline\indent Word count: X}
+\textsuperscript{1} Department of Neuroscience, Graduate School of Medicine, Kyoto University, Kyoto, Japan\\\textsuperscript{2} Tallinn University Centre of Excellence in Neural and Behavioural Sciences, School of Natural Sciences and Health, Tallinn University, Tallinn, Estonia\\\textsuperscript{3} Division of Neuropsychopharmacology, Department of Psychology, University of Tartu, Tartu, Estonia\\\textsuperscript{*} Both authors contributed equally to this manuscript}
+\keywords{cytochrome oxidase, histochemistry, ketamine, rats\newline\indent Word count: X}
 \usepackage{csquotes}
 \usepackage{upgreek}
 \captionsetup{font=singlespacing,justification=justified}
@@ -101,10 +101,12 @@
 \usepackage{lineno}
 
 \linenumbers
+\usepackage{booktabs}
+\usepackage{makecell}
 
 \authornote{
 
-Correspondence concerning this article should be addressed to Jaanus Harro, Postal address. E-mail: \href{mailto:jaanus.harro@ut.ee}{\nolinkurl{jaanus.harro@ut.ee}}}
+Correspondence concerning this article should be addressed to Jaanus Harro, Ravila 14A, Chemicum, 50411, Tartu, Estonia. E-mail: \href{mailto:jaanus.harro@ut.ee}{\nolinkurl{jaanus.harro@ut.ee}}}
 
 \abstract{
 
@@ -116,25 +118,254 @@ Correspondence concerning this article should be addressed to Jaanus Harro, Post
 \hypertarget{introduction}{%
 \section{Introduction}\label{introduction}}
 
-Here is a citation
+Although the lifetime prevalence of schizophrenia is comparatively low (0.3-0.7\%) {[}1{]}, the direct and indirect costs are high owing to early onset and disabling chronic course {[}2{]}, making finding an effective treatment important to both patients and society. Schizophrenia symptoms are divided into three categories: positive (hallucinations, delusions), negative (anhedonia, blunted affect, social withdrawal), and cognitive (impaired executive function and memory). Traditionally, aetiology of schizophrenia has been linked to the hyperactivity in the dopaminergic signal transduction. However, early research on the behavioural effects of glutamate NMDA receptor antagonists phencyclidine (PCP) and ketamine and more recent advances in neurobiology and genetics have indicated that glutamate signal transduction also plays an important role {[}3{]}.
 
-\hypertarget{background}{%
-\section{Background}\label{background}}
+Glutamate is the most ubiquitous neurotransmitter in mammalian brain: about 60\% of neurons contain glutamate, and virtually all neurons have some type of glutamate receptor. Early pharmacological observations of dissociative anaesthetics ketamine and PCP have lead to the hypothesis that glutamate plays a causal role in schizophrenia. These drugs inactivate signal transduction by blocking the ion channel within a major type of ionotropic glutamate receptor called N-methyl-D-aspartate receptor (NMDAR). Modulation of the postsynaptic NMDARs is crucial for activity-dependent synaptic plasticity and memory. By analogy, a hypofunction of NMDAR-mediated glutamatergic signalling was implicated in the pathophysiology of schizophrenia {[}5{]}. Evidence for this hypothesis partly relies on the observation that when normal adults are administered an NMDAR antagonist, such as ketamine, they develop negative, cognitive and positive symptoms like those seen in schizophrenia {[}6--8{]}. Administration of these compounds to someone with schizophrenia exacerbates their symptoms {[}9{]}. Furthermore, stimulating NMDAR-mediated signalling using agonists of the glycine modulatory site has been effective in alleviating some of the symptoms of schizophrenia in clinical trials {[}10,11{]}. Despite the early enthusiasm, the therapeutic efficacy of the first antipsychotic drugs developed to augment glutamatergic neurotransmission via allosteric modulation of NMDAR was found to be rather limited {[}12,13{]}. Glutamatergic neurotransmission is very complex, as it involves different receptor types, molecular adaptation mechanisms, and tight coupling between oxidative metabolism and glutamate-glutamine neurotransmitter cycle {[}14{]}. Therefore the nature of glutamatergic deficits in schizophrenia and best ways to counter them remain very active areas of research {[}15{]}.
 
-\hypertarget{methods}{%
-\section{Methods}\label{methods}}
+Subchronic administration of the NMDAR antagonists such as ketamine, PCP, or dizocilpine (MK-801) readily replicates cognitive and negative aspects of schizophrenia in animal models. A daily treatment of 7 to 10 days is sufficient to impair declarative and working memory, as well as executive functions in rodents {[}16--18{]}. Negative symptoms are also replicated by a reduction of non-aggressive behaviour in the social interaction test {[}19{]}.
+
+Cytochrome c oxidase (COX; EC 1.9.3.1) is a key enzyme in complex IV of the mitochondrial electron transport chain, where its activity mirrors the generation of ATP. COX activity is tightly coupled to neuronal activity at molecular level and primarily reflects long-term post-synaptic energy expenditure {[}20{]}.
+Nuclear respiratory factor 1 (NRF-1) binds to COX subunit genes and functionally regulates neuronal metabolism. NRF-1 also co‐regulates AMPA glutamate receptor subunit 2 and NMDA receptor subunits 1 (NR1) and 2b (NR2b) genes, therefore mitochondrial energy generation and glutamate cell transduction are controlled by overlapping transcriptional mechanisms {[}21,22{]}. Histological processing of brain tissue allows to measure COX levels at high resolution and in large number of brain regions. It provides a snapshot of mainly excitatory neuronal activity of the entire brain and is an excellent method to look for novel biochemical targets.
+COX activity has been found to be increased in post-mortem brain samples of schizophrenia patients, and in correlation with their intellectual and emotional impairment {[}23,24{]}. Human patients usually have a history of chronic antipsychotic drug treatment and changes of COX activity also reflect the effects of medication. Accordingly, COX activity in a number of brain regions was enhanced by the administration of several antipsychotic drugs in rats {[}25{]}. In this regard, animal models allow more precision in disentangling the brain localisations of dysfunctions and therapeutic effect of different drugs. The data on brain metabolic effects of subanaesthetic treatment with NMDAR antagonists is relatively sparse. One study assessed the effect of PCP after chronic administration of 28 days in rats and reported reduced COX activity in several brain regions, especially in basal ganglia and septum {[}26{]}. In another study employing the enzymatic assay of COX activity in brain tissue homogenates after ketamine had been administered at 25 mg/kg for 7 days, increased enzyme activity was observed in striatum and hippocampus 1 to 6 h after the last dose of ketamine {[}27{]}.
+
+The aim of this study was to identify brain regions with a) persistently different oxidative energy metabolism levels by comprehensive mapping and b) to reveal potentially differential regional activity co-variance after subchronic ketamine administration.
+
+\hypertarget{materials-and-methods}{%
+\section{Materials and Methods}\label{materials-and-methods}}
+
+\hypertarget{animals}{%
+\subsubsection{Animals}\label{animals}}
+
+Female Sprague-Dawley rats aged 10-12 weeks (220-250 g) at the start of the experiment were used in this study. Rats were grouped-housed in standard polycarbonate cages on a 12 h light-dark cycle (lights on 08:00-20:00), standard temperature (22 ± 2°C) and humidity (40-55\%) with food and water available \emph{ad libitum}. Experiments were approved by the Ethical Committee for Animal Experiments of the Estonian Ministry of Rural Affairs (permission 25.06.2018 nr. 127) in accordance with Directive 2010/63/EU of the European Union.
+
+\hypertarget{drugs}{%
+\subsubsection{Drugs}\label{drugs}}
+
+Racemic ketamine (Bioketan, Vetoquinol Biowet, Gorzów Wielkopolski, Poland) diluted in sterile saline was administered intraperitoneally at a dose of 30 mg/kg and an injection volume of 1 ml/kg once per day for 10 consecutive days. Control animals received saline at 1 ml/kg.
+
+\hypertarget{tissue-collection}{%
+\subsubsection{Tissue Collection}\label{tissue-collection}}
+
+Brains were collected 24h after the last injection and flash frozen in isopentane on dry ice followed by storage at -80°C. Sections of 40 µm were sliced on a Leica CM1520 cryostat onto VWR Superfrost Plus slides and stored at -80°C until use.
+
+\hypertarget{cytochrome-c-oxidase-staining-and-image-analysis}{%
+\subsubsection{Cytochrome C oxidase staining and image analysis}\label{cytochrome-c-oxidase-staining-and-image-analysis}}
+
+Cytochrome C oxidase staining and image analysis were performed as described in Kanarik and Harro {[}28{]}, based on a modified protocol by Gonzalez-Lima and Cada {[}29{]}. Enzyme activity levels were derived from optical density measurements of a histochemical reaction product within each brain region. The optical density values were converted to enzyme activity levels by using external standardisation: Sections made of brain homogenate with spectrophotometrically measured enzyme activity were included in all incubation baths.
+
+\hypertarget{statistical-analysis}{%
+\subsection{Statistical analysis}\label{statistical-analysis}}
+
+\hypertarget{data-imputation}{%
+\subsubsection{Data imputation}\label{data-imputation}}
+
+Raw data contained COX measurements for 247 brain regions in 14 rats. Seven animals were from the control and 7 from the treatment group, respectively. For 69 brain regions, the data were complete. In some cases the planned measurements were not attainable owing to cutting-induced defects or shift of the cut on the rostral-caudal axis, leading to missing measurements for 1 or more animals. Multiple imputation of the missing data was performed. Because the original data had a significant number of highly correlated variables, we used random forest approach to deal with the multicollinearity. This model was applied to brain regions with 2 or fewer missing cases in each experimental condition. There were 121 such brain regions. In total 190 brain regions were included in subsequent analyses. The rest of the data were discarded. Ten multiply imputed datasets were generated by R-package \emph{mice} {[}30{]}. The implementation of Breiman's {[}31{]} random forest algorithm for R language was used as described by Doove and colleagues {[}32{]}. The algorithm was run for 20 iterations and showed good convergence. An example of the imputed data for one of the brain regions is shown on Figure 1 in supplementary materials.
+
+\hypertarget{testing-for-difference-in-mean-cox-levels}{%
+\subsubsection{Testing for difference in mean COX levels}\label{testing-for-difference-in-mean-cox-levels}}
+
+We applied Welch's two sample t-test to the 10 imputed datasets and used Barnard-Rubin's method to adjust the degrees of freedom for small samples in pooled data {[}33{]}.
+
+\hypertarget{differential-correlation-analysis}{%
+\subsubsection{Differential correlation analysis}\label{differential-correlation-analysis}}
+
+We employed the Differential Correlation Analysis (DCA) to identify the brain regions with different correlation profiles in control and ketamine group rats. Spearman rank-order correlation coefficients were calculated between all possible pairs of brain regions in each of the 10 multiply imputed data sets. Spearman's method was chosen because of the risk that just 1 outlier can significantly bias the correlation coefficients in small samples. Spearman's method works with ranks of the raw data, therefore on small samples it can overrepresent the true strength of the linear relationship between two variables (e.g.~producing correlation coefficients close to 1). The correlation coefficients were then converted to Fisher z-scores that follow normal distribution. Finally, the difference in z-scores between two conditions (Δ z-score) was calculated and the significance of the difference score evaluated separately by 1000 permutation tests in each imputed data set. The empirical p-values from the permutation tests were then averaged across the 10 multiply imputed data sets. The medians of z-scores were calculated in a similar manner. Besides pairwise correlations, the median change in correlation for each brain region with all others (gives 1 summary score for each brain region) and the median change in correlation between two conditions across all brain regions (provides 1 summary score) were also calculated. The DCA procedures were carried with DGCA R software package {[}34{]}.
+
+\hypertarget{significance-thresholds}{%
+\subsubsection{Significance thresholds}\label{significance-thresholds}}
+
+The statistical significance threshold for t-tests and median regional change in correlations in DCA is set at p level of 0.05. Pairwise DCA analysis involved 17955 separate comparisons of correlation z-scores between two conditions. It was important to strike a reasonable balance between scientific discovery and the risk of significance due to chance. Therefore, in the main text the statistical significance threshold is set at p level of 0.01. Additionally, only brain regions with at least two pairwise significant changes in correlation coefficients between conditions are included in the main text. Tables 1 \& 2 in supplementary materials include full results of pairwise DCA analysis at p level of 0.05.
 
 \hypertarget{results}{%
 \section{Results}\label{results}}
 
+\hypertarget{testing-for-difference-in-mean-cox-levels-1}{%
+\subsection{Testing for difference in mean COX levels}\label{testing-for-difference-in-mean-cox-levels-1}}
+
+\begin{table}[t]
+
+\caption{\label{tab:table-t-tests}Brain regions with increased COX levels ($\mu$mol/min/gram tissue) after subchronic ketamine treatment}
+\centering
+\resizebox{\linewidth}{!}{
+\fontsize{12}{14}\selectfont
+\begin{tabular}{>{\raggedright\arraybackslash}p{18em}>{\raggedright\arraybackslash}p{8em}lll}
+\toprule
+
+Brain region & difference of the means vs. control & 
+t & 
+df & 
+p\\
+\midrule
+Medial geniculate, ventral & 31.05 & 4.112 & 10.399 & 0.002\\
+Globus pallidus & 43.60 & 3.607 & 9.138 & 0.006\\
+Lateral posterior thalamus, mediorostral & 42.22 & 2.879 & 10.130 & 0.016\\
+Superior colliculi, deep gray/white layer & 22.86 & 2.832 & 10.399 & 0.017\\
+Piriform cortex & 62.68 & 2.895 & 8.933 & 0.018\\
+\addlinespace
+Cingulate cortex, areas 1 \& 2 & 22.95 & 2.645 & 10.399 & 0.024\\
+Caudate putamen & 48.10 & 2.585 & 10.109 & 0.027\\
+Hippocampal dentate gyrus & 50.43 & 2.536 & 9.288 & 0.031\\
+Retrosplenial cortex, granular & 30.19 & 2.412 & 10.399 & 0.036\\
+\bottomrule
+\end{tabular}}
+\end{table}
+
+After we have performed the Welch's two sample t-test on 10 multiply imputed datasets and pooled the estimates, the mean comparisons in 9 brain regions emerged as statistically significant. The results of t-test comparisons are provided in table \ref{tab:table-t-tests}. In all significant comparisons ketamine group rats had higher levels of cytochrome c oxidase activity.
+
+\hypertarget{differential-correlation-analysis-1}{%
+\subsection{Differential correlation analysis}\label{differential-correlation-analysis-1}}
+
+\begin{table}[tbp]
+\begin{center}
+\begin{threeparttable}
+\caption{\label{tab:dca-regional-average}Regional median changes in correlation}
+\begin{tabular}{lll}
+\toprule
+brain region & \multicolumn{1}{c}{Δ z-score} & \multicolumn{1}{c}{p}\\
+\midrule
+Superior colliculi, superficial gray layer & -0.77 & .005\\
+Superior colliculi, intermediate gray layer & -0.76 & .007\\
+Superior colliculi, optic nerve layer & -0.78 & .013\\
+Dorsomedial periaqueductal gray & -0.69 & .017\\
+Superior colliculi, intermediate white layer & -0.47 & .041\\
+Locus coeruleus & 0.82 & .054\\
+\bottomrule
+\end{tabular}
+\end{threeparttable}
+\end{center}
+\end{table}
+
+The median correlation between the two conditions did not differ significantly p = 0.94. The regional median changes in correlations are provided in table \ref{tab:dca-regional-average}. The five regions have significantly more negative median correlations with the rest of brain regions in ketamine-treated rats. The locus coeruleus instead showed a borderline significant increase in the median correlation.
+
+\begingroup\fontsize{12}{14}\selectfont
+
+\begin{longtable}{llrlrr}
+\caption{\label{tab:table-positive}Decreased pairwise correlations in ketamine rats}\\
+\toprule
+region 1 & region 2 & Δ z-score & p & r control & r ketamine\\
+\midrule
+\endfirsthead
+\caption[]{\label{tab:table-positive}Decreased pairwise correlations in ketamine rats \textit{(continued)}}\\
+\toprule
+region 1 & region 2 & Δ z-score & p & r control & r ketamine\\
+\midrule
+\endhead
+\
+\endfoot
+\bottomrule
+\endlastfoot
+PR (-4.8) & InG (-5.8) & -4.089 & .001 & 0.964 & -0.750\\
+SubD (-5.8) & Op (-5.8) & -3.833 & .001 & 1.000 & -0.143\\
+PtA (-4.8) & SuG (-5.8) & -3.567 & .002 & 0.821 & -0.893\\
+CA1 (-4.8) & Op (-5.8) & -3.507 & .002 & 0.964 & -0.500\\
+DP (+2.2) & Op (-5.8) & -3.494 & .002 & 0.929 & -0.714\\
+\addlinespace
+Op (-5.8) & RSA (-5.8) & -3.438 & .002 & 1.000 & 0.143\\
+DLG (-4.8) & DMPAG (-5.8) & -3.357 & .003 & 0.857 & -0.821\\
+CA3 (-4.8) & V2 (-4.8) & -3.232 & .004 & 1.000 & 0.286\\
+PR (-4.8) & RSGa (-5.8) & -3.300 & .004 & 0.929 & -0.637\\
+CA2 (-4.8) & SuG (-5.8) & -3.156 & .004 & 0.964 & -0.286\\
+\addlinespace
+LSD (-0.3) & InG (-5.8) & -3.250 & .005 & 0.964 & -0.346\\
+PR (-4.8) & InWh (-5.8) & -3.078 & .005 & 0.893 & -0.667\\
+CPuV (+0.2) & DLG (-4.8) & -3.006 & .006 & 1.000 & 0.429\\
+Ect (-4.8) & InWh (-5.8) & -3.002 & .006 & 0.964 & -0.180\\
+APT (-4.8) & InG (-5.8) & -2.992 & .006 & 0.857 & -0.714\\
+\addlinespace
+MCPO  (-0.3) & DMPAG (-5.8) & -2.900 & .007 & 0.964 & -0.107\\
+APT (-4.8) & Op (-5.8) & -2.912 & .007 & 0.786 & -0.786\\
+CA2 (-4.8) & V2 (-4.8) & -2.900 & .007 & 0.964 & -0.107\\
+AuV (-4.8) & Op (-5.8) & -2.893 & .007 & 0.929 & -0.429\\
+DG (-4.8) & Op (-5.8) & -2.893 & .007 & 0.929 & -0.429\\
+\addlinespace
+CA3 (-4.8) & SuG (-5.8) & -2.865 & .008 & 0.893 & -0.571\\
+CA3 (-4.8) & RSGa (-5.8) & -2.851 & .008 & 0.964 & -0.072\\
+CA3 (-4.8) & InG (-5.8) & -2.834 & .008 & 0.929 & -0.393\\
+Ect (-4.8) & Op (-5.8) & -2.810 & .009 & 0.857 & -0.643\\
+PR (-4.8) & SuG (-5.8) & -2.793 & .009 & 0.750 & -0.786\\
+\addlinespace
+LP (-4.8) & InWh (-5.8) & -2.782 & .010 & 0.714 & -0.811\\
+DG (-4.8) & DMPAG (-5.8) & -2.777 & .010 & 0.929 & -0.357\\*
+\end{longtable}
+\endgroup{}
+
+\begingroup\fontsize{12}{14}\selectfont
+
+\begin{longtable}{llrlrr}
+\caption{\label{tab:table-negative}Increased pairwise correlations in ketamine rats}\\
+\toprule
+region 1 & region 2 & Δ z-score & p & r control & r ketamine\\
+\midrule
+Cg1, 2 (-0.3) & SPTg (-8.0) & 3.523 & .002 & -0.857 & 0.857\\
+M2 (-0.3) & RTg (-8.0) & 3.494 & .002 & -0.714 & 0.929\\
+B (-1.3) & RTg (-8.0) & 3.221 & .005 & -0.929 & 0.595\\
+MGV (-5.8) & Dp (-5.8) & 3.098 & .005 & -0.857 & 0.750\\
+MM (-4.8) & AuD (-4.8) & 3.000 & .006 & -0.177 & 0.964\\
+\addlinespace
+RSG (-4.8) & MM (-4.8) & 2.835 & .007 & -0.556 & 0.893\\
+MGV (-5.8) & DRD (-8.0) & 2.897 & .007 & -0.679 & 0.857\\
+Cg1, 2 (-0.3) & V1M (-8.0) & 2.910 & .008 & -0.901 & 0.536\\
+\bottomrule
+\end{longtable}
+\endgroup{}
+
+
+
+
+\begin{figure}
+\centering
+\includegraphics{../figures/cor-plot-1.pdf}
+\caption{\label{fig:cor-plot}Graphical representation of changes in correlation coefficients after subchronic
+ketamine treatment. Line segments connect pairs of brain regions with significant difference in correlation scores between the two conditions. The widths of line segments correspond to the magnitude of the difference between two correlation scores.}
+\end{figure}
+
+For the presentation of significantly changed pairwise correlation coefficients we chose brain regions that exhibited significant change in at least 2 pairs. In majority of the cases (27), the positive association was abolished (high positive correlation either became non-significant or negative) in ketamine rats at p level below 0.01 (table \ref{tab:table-positive}). Optic nerve layer of the superior colliculi was the brain region with the biggest number of significant pairwise changes in correlation (8 pairs). The other brain regions in table \ref{tab:table-positive} had between 2 and 4 pairwise reductions in the correlation coefficients and were as follows APT (-4.8), CA2 (-4.8), CA3 (-4.8), DG (-4.8), DLG (-4.8), DMPAG (-5.8), Ect (-4.8), InG (-5.8), InWh (-5.8), PR (-4.8), RSGa (-5.8), SuG (-5.8), V2 (-4.8). Conversely, the opposite pattern was observed in 8 pairs, where the correlation increased after ketamine adminsitration (table \ref{tab:table-negative}). Here, the brain regions with 2 pairwise reversals in correlation direction were as follows: Cg1, 2 (-0.3), MGV (-5.8), MM (-4.8), RTg (-8.0).
+The pairwise changes in correlation coefficients after subchronic administration of ketamine are summarised on figure \ref{fig:cor-plot}.
+
 \hypertarget{discussion}{%
 \section{Discussion}\label{discussion}}
 
-\hypertarget{conclusion}{%
-\section{Conclusion}\label{conclusion}}
+The comparison of mean enzyme activity levels between control and treatment conditions showed an increase in the oxidative metabolic activity in several brain regions. Of them, 2 regions represented sensory thalamus, 2 basal ganglia, 3 cortical areas (2 areas in the cingulate cortex and 1 in olfactory cortex), 1 hippocampal dentate gyrus, and 1 deep layer of the superior colliculi. Results from current study are in good agreement with previous studies and show that subchronic ketamine regimen potentiates neural activity. Our experimental design had a 24 h washout period between the last ketamine injection and the animal sacrifice, hence the observed changes in COX activity likely reflect persistent neurochemical and behavioural adaptations.
+
+Antagonists of NMDA receptors, also called dissociative anaesthetics have a long history.
+PCP was developed first, but due to its toxicity is mainly famous as an illicit street drug. Ketamine is a safer PCP derivative, first synthesised in 1962 {[}35{]}. Dizocilpine was first described 20 years after ketamine {[}36{]}. All three NMDA antagonists have been studied in animal models of schizophrenia, so while our main emphasis is on ketamine, we will briefly mention some of the studies with PCP and dizocilpine as well. Acute and subchronic administration of ketamine in subanaesthetic doses somewhat paradoxically elevates neuronal activity and neurotransmitter release in various brain regions. This effect has been recorded in both primates and rodents using several methods. For example, in humans, subanaesthetic infusion of ketamine during PET scan increased regional glucose metabolic rate in most brain regions, including the anterior and posterior cingulate cortex, caudate, and thalamus. No regions with decreased glucose metabolism were found {[}37{]}. Similarly, studies of brain haemodynamic activity in rats, monkeys, and humans all have shown quite consistent pattern of regional increases in the BOLD signal indicative of neuronal excitation {[}38{]}. In all regions, peak BOLD response occurs 3--5 min after the start of ketamine infusion, which correlates well with the time-course of ketamine peak blood levels {[}39{]}. In monkeys, acute ketamine injection increases both spontaneous and task-related firing of layer V pyramidal cells in the prefrontal cortex {[}40{]}. There is experimental evidence that while the activity of the pyramidal cells in increased after ketamine infusion, the inhibition of NMDA receptors mainly decreases the activity of putative GABA interneurons {[}41{]}. Therefore at least some of the elevated cerebral excitation stems from the disinhibition of projection neurons that were released from GABA-ergic inhibition.
+
+The effects of ketamine on neurotransmitter release are reviewed in {[}14{]}. Subchronic ketamine administration in rats releases glutamate in the frontal lobe {[}42,43{]}. If ketamine is administered acutely, the release of glutamate in the prefrontal cortex is dose-dependent {[}44{]}. Similarly, acute and subchronic PCP administration increased glutamate release and reduced levels of GABA neuronal markers parvalbumin and GAD67 in the prefrontal cortex {[}45{]}. A number of other neurotransmitters have also been studied. Increased cerebral serotonin turnover after were observed after acute and subchronic ketamine administration {[}42,46{]}. Acute dizocilpine administration increased dopamine and serotonin turnover in the frontal cortex, piriform cortex, hippocampus, and striatum {[}47,48{]}. Similar results have also been obtained with PCP {[}49,50{]}.
+Chatterjee and colleagues {[}42{]} have performed a comprehensive research on acute and subchronic (10 days of treatment) effects of ketamine in mice. They found higher dopamine and acetylcholine turnover, but lower glycine levels in cortex, striatum, and hippocampus{[}42,51{]}. Gene expression was also affected. D\textsubscript{1} and D\textsubscript{2} dopamine, as well as 5-HT\textsubscript{1A} receptor expressions in the cortex was significantly elevated. The gene-expression of two NMDAR subunits NR1 and NR2b was likewise higher in the cortex after subchronic ketamine administration {[}42{]}. Previously, the same group found that behavioural effects of subchronic ketamine regimen in mice persist for at least 10 days after the withdrawal of ketamine administration {[}52{]}. Besides NMDAR, ketamine binds to dopamine D\textsubscript{2} receptors in high affinity state, serotonin 5-HT\textsubscript{2A}, sigma 1, and opioid receptors {[}53,54{]}. The results we have reviewed show that introduction of ketamine rapidly reconfigures and elevates neuronal activity via several molecular target pathways. Finally, in some studies the metabolic activity was also measured from histological preparations similar to the current study. A quantitative autoradiographic \textsuperscript{14}C-2-deoxyglucose (2-DG) technique is used to measure the glucose oxidation just minutes after the acute dose of NMDAR antaganist. Pronounced increases in local cerebral
+glucose utilisation were observed after acute dizocilpine dose in the olfactory areas and in a number of brain areas in the limbic system (including dentate gyrus, posterior cingulate cortex, and mammillary body) {[}55{]}. Similar results were found for ketamine (35 mg/kg). Increased 2-DG uptake was recorded in cingulate, retrosplenial, and piriform cortices, dentate gyrus, various thalamic nuclei, although there was no change in medial geniculate {[}56{]}. Of note is that while in pharmacological studies PCP was quite similar to ketamine, on histological sections the reported results are opposite. Chronic and subchronic treatments of PCP were associated with reduced glucose metabolism in some prefrontal areas in the cortex and auditory centres of the brain {[}57{]}. Reduced brain metabolism after the chronic PCP regimen was also identified in COX activity, but mainly in basal ganglia and septum {[}26{]}.
+
+Differential correlation analysis is complimentary to the comparison of the mean COX levels. It accounts for the shape of the distribution of the results and allows to compare pairwise regional interactions between conditions. Four layers of the superior colliculi and one subdivision of the periaqueductal gray matter showed reduced positive correlations over all brain regions after subchronic ketamine treatment. Several layers of the superior colliculi were also prominently different between two rat groups in regional pairwise correlations of their COX levels. Their correlations with cortical and hippocampal brain regions were strongly positive in the control condition and tended to become negative after subchronic ketamine administration. Dorsomedial periaqueductal gray, hippocampal CA3, and prerubral field were three other brain regions with 3-4 pairwise significant reductions in positive correlations in the latter condition.
+
+The opposite pattern of changes in the pairwise correlation coefficients between two conditions was also observed, but in the fewer brain regions. None of these brain regions showed increased positive pairwise correlations after ketamine administration with more than 2 other brain regions. There was also little overlap between brain regions that exhibited more positive and more negative pairwise correlations in the ketamine group rats. The reduction of the positive pairwise correlations after subchronic ketamine administration was a more common pattern and various layers of the superior colliculi were prominent nodes in this process.
+
+Extensive metabolic and extracellular changes in cortex, hippocampus, and basal ganglia after the administration of ketamine are already well documented {[}42,56{]}. In the current study a significant role of the subcortical sensory regions have also emerged.\\
+Lateral posterior thalamic nucleus and superficial layers of superior colliculi (SuG(-5.8), Op(-5.8)) receive direct retinal projections and are important for visually guided behaviours and multisensory integration {[}58,59{]}. Some neurons in the deeper layers of the superior colliculus are also responsive to auditory stimulation. In cats, the acute infusion of ketamine facilitated spontaneous activity and auditory responses of neurons in the intermediate layers of the superior colliculus {[}60{]}. Ventral part of the medial geniculate is the primary auditory relay nucleus of the thalamus that projects to the primary auditory cortex {[}61{]}. COX activity in MGV(−5.8) was elevated in absolute levels. Its correlations with Dp(-5.8) and DRD(−8.0) has also become significantly positive. It is noteworthy that acute doses of ketamine produce visual and auditory deficits in healthy humans and rodents {[}62,63{]}. Prerubral field belongs to the H fields of Forel: a meeting place of several fibre bundles forming cortico-striato-thalamo-cortical loops where the convergence is observed of sensorimotor, associative, and limbic pathways {[}64{]}. In rat, prerubral field receives axonal projections from whisker-sensitive region of the spinal trigeminal nucleus {[}65{]}. Finally, the olfactory circuitry was also represented via an increased COX levels in the piriform cortex {[}66{]}.
+
+The limitation of our study was relatively low number of the animals, therefore some significant effects of ketamine administration are likely to be masked by the presence of 1 or 2 outliers or missing observations. The activity of several sensory neurocircuits, especially in the superior colliculi, was affected by ketamine adminisration.
+
+Histology remains the best way to measure neuronal activity in smaller subcortical brain regions. Our study is the first to evaluate the effect of ketamine administration on regional brain metabolic activity by means of histochemistry.
+\# Conclusion
+
+\hypertarget{abbreviations}{%
+\section{Abbreviations}\label{abbreviations}}
+
+\hypertarget{brain-regions}{%
+\subsection{Brain regions}\label{brain-regions}}
+
+Brain regions are abbreviated according to the reference brain atlas {[}67{]}. For each brain region the distance to bregma in millimetres according to the reference brain secion is provided in parentheses.
+APT (-4.8), Anterior pretectal nucleus; AuD (-4.8), Auditory cortex, secondary, dorsal;
+AuV (-4.8), Auditory cortex, secondary, ventral; B (-1.3), Nucleus basalis; CA1 (-4.8), Hippocampal CA1(Cornu Ammonis area 1); CA2 (-4.8), Hippocampal CA2; CA3 (-4.8), Hippocampal CA3; Cg1,2 (-0.3), Cingulate cortex, areas 1 \& 2; CPu (-1.3), Caudate putamen; CPuDM (+0.2), Caudate putamen, dorsomedial; CPuV (+0.2), Caudate putamen, ventral; DG (-3.8), Hippocampal dentate gyrus; DG (-4.8), Hippocampal dentate gyrus; DLG (-4.8), Dorsal lateral geniculate; DMPAG (-5.8), Dorsomedial periaqueductal gray; DP (+2.2), Dorsal peduncular cortex; Dp (-5.8), Superior colliculi, deep gray/white layer; DRD (-8.0), Dorsal raphe, dorsal; Ect (-4.8), Ectorhinal cortex; GP (-1.3), Globus pallidus; InG (-5.8), Superior colliculi, intermediate gray layer; InWh (-5.8), Superior colliculi, intermediate white layer; LC (-10.04), Locus coeruleus; LP (-4.8), Lateral posterior nucleus; LPMR (-3.8), Lateral posterior thalamus, mediorostral; LSD (-0.3), Lateral septal nucleus, dorsal; M2 (-0.3), Motor cortex, secondary; MCPO (-0.3), Magnocellular preoptic nucleus; MGV (-5.8), Medial geniculate, ventral; MM (-4.8), Medial mamillary, medial; Op (-5.8), Superior colliculi, optic nerve layer; Pir (-1.3), Piriform cortex; PR (-4.8), Prerubral field; PtA (-4.8), Parietal association cortex; RSA (-5.8), Retrosplenial cortex, agranular; RSG (-4.8), Retrosplenial cortex, granular; RSGa (-5.8), Retrosplenial cortex, granular; RSGb (-5.8), Retrosplenial cortex, granular; RTg (-8.0), Reticulotegmental nucleus; Shi (+0.2), Septohippocampal nucleus; SPTg (-8.0), Subpeduncular tegmental nucleus; SubD (-5.8), Subiculum, dorsal; SuG (-5.8), Superior colliculi, superficial gray layer; V1M (-8.0), Primary visual cortex, monocular; V2 (-4.8), Visual cortex, secondary.
+
+\hypertarget{other}{%
+\subsection{Other}\label{other}}
+
+2-DG, \textsuperscript{14}C-2-deoxyglucose; 5-HIAA, 5-hydroxyindoleacetic acid; AMPA, \(\alpha\)-amino-3-hydroxy-5-methylisoxazole-4-propionate; BOLD, blood oxygen level dependent;
+COX, cytochrome c oxidase; DCA, differential correlation analysis; GABA, \(\gamma\)-aminobutyric acid; GAD67, glutamic acid decarboxylase-67; NMDAR, N-methyl-D-aspartate receptor; NRF-1, Nuclear respiratory factor 1; PCP, phencyclidine; PET, positron emission tomography; SE, standard error.
 
 \hypertarget{acknowledgements}{%
 \section{Acknowledgements}\label{acknowledgements}}
+
+This research has been supported by the Estonian Ministry of Education and Science project IUT20-40.
 
 \pagebreak
 
@@ -142,6 +373,206 @@ Here is a citation
 \section{References}\label{references}}
 
 \hypertarget{refs}{}
+\leavevmode\hypertarget{ref-americanpsychiatricassociationDiagnosticStatisticalManual2013}{}%
+{[}1{]} A.P. Association, A.P. Association, eds., Diagnostic and statistical manual of mental disorders: DSM-5, 5th ed, American Psychiatric Association, Washington, D.C, 2013.
+
+\leavevmode\hypertarget{ref-chongGlobalEconomicBurden2016}{}%
+{[}2{]} H.Y. Chong, S.L. Teoh, D.B.-C. Wu, S. Kotirum, C.-F. Chiou, N. Chaiyakunapruk, Global economic burden of schizophrenia: A systematic review, Neuropsychiatr Dis Treat. 12 (2016) 357--373. doi:\href{https://doi.org/10.2147/NDT.S96649}{10.2147/NDT.S96649}.
+
+\leavevmode\hypertarget{ref-javittGlutamatergicTheoriesSchizophrenia2010}{}%
+{[}3{]} D.C. Javitt, Glutamatergic theories of schizophrenia, The Israel Journal of Psychiatry and Related Sciences. 47 (2010) 4--16.
+
+\leavevmode\hypertarget{ref-schizophreniaworkinggroupofthepsychiatricgenomicsconsortiumBiologicalInsights1082014}{}%
+{[}4{]} Schizophrenia Working Group of the Psychiatric Genomics Consortium, Biological insights from 108 schizophrenia-associated genetic loci, Nature. 511 (2014) 421--427. doi:\href{https://doi.org/10.1038/nature13595}{10.1038/nature13595}.
+
+\leavevmode\hypertarget{ref-coyleGlutamateSchizophreniaDopamine2006}{}%
+{[}5{]} J.T. Coyle, Glutamate and schizophrenia: Beyond the dopamine hypothesis, Cell. Mol. Neurobiol. 26 (n.d.) 365--384. doi:\href{https://doi.org/10.1007/s10571-006-9062-8}{10.1007/s10571-006-9062-8}.
+
+\leavevmode\hypertarget{ref-adlerComparisonKetamineinducedThought1999}{}%
+{[}6{]} C.M. Adler, A.K. Malhotra, I. Elman, T. Goldberg, M. Egan, D. Pickar, A. Breier, Comparison of ketamine-induced thought disorder in healthy volunteers and thought disorder in schizophrenia, Am J Psychiatry. 156 (1999) 1646--1649. doi:\href{https://doi.org/10.1176/ajp.156.10.1646}{10.1176/ajp.156.10.1646}.
+
+\leavevmode\hypertarget{ref-krystalSubanestheticEffectsNoncompetitive1994}{}%
+{[}7{]} J.H. Krystal, L.P. Karper, J.P. Seibyl, G.K. Freeman, R. Delaney, J.D. Bremner, G.R. Heninger, M.B. Bowers, D.S. Charney, Subanesthetic effects of the noncompetitive NMDA antagonist, ketamine, in humans. Psychotomimetic, perceptual, cognitive, and neuroendocrine responses, Arch. Gen. Psychiatry. 51 (1994) 199--214. doi:\href{https://doi.org/10.1001/archpsyc.1994.03950030035004}{10.1001/archpsyc.1994.03950030035004}.
+
+\leavevmode\hypertarget{ref-newcomerKetamineinducedNMDAReceptor1999}{}%
+{[}8{]} J.W. Newcomer, N.B. Farber, V. Jevtovic-Todorovic, G. Selke, A.K. Melson, T. Hershey, S. Craft, J.W. Olney, Ketamine-induced NMDA receptor hypofunction as a model of memory impairment and psychosis, Neuropsychopharmacology. 20 (1999) 106--118. doi:\href{https://doi.org/10.1016/S0893-133X(98)00067-0}{10.1016/S0893-133X(98)00067-0}.
+
+\leavevmode\hypertarget{ref-lahtiEffectsKetamineNormal2001}{}%
+{[}9{]} A.C. Lahti, M.A. Weiler, B.A. Tamara Michaelidis, A. Parwani, C.A. Tamminga, Effects of ketamine in normal and schizophrenic volunteers, Neuropsychopharmacology. 25 (2001) 455--467. doi:\href{https://doi.org/10.1016/S0893-133X(01)00243-3}{10.1016/S0893-133X(01)00243-3}.
+
+\leavevmode\hypertarget{ref-heresco-levyPlacebocontrolledTrialDcycloserine2002}{}%
+{[}10{]} U. Heresco-Levy, M. Ermilov, J. Shimoni, B. Shapira, G. Silipo, D.C. Javitt, Placebo-controlled trial of D-cycloserine added to conventional neuroleptics, olanzapine, or risperidone in schizophrenia, Am J Psychiatry. 159 (2002) 480--482. doi:\href{https://doi.org/10.1176/appi.ajp.159.3.480}{10.1176/appi.ajp.159.3.480}.
+
+\leavevmode\hypertarget{ref-tsaiDserineAddedAntipsychotics1998}{}%
+{[}11{]} G. Tsai, P. Yang, L.C. Chung, N. Lange, J.T. Coyle, D-serine added to antipsychotics for the treatment of schizophrenia, Biol. Psychiatry. 44 (1998) 1081--1089. doi:\href{https://doi.org/10.1016/s0006-3223(98)00279-0}{10.1016/s0006-3223(98)00279-0}.
+
+\leavevmode\hypertarget{ref-buchananCognitiveNegativeSymptoms2007}{}%
+{[}12{]} R.W. Buchanan, D.C. Javitt, S.R. Marder, N.R. Schooler, J.M. Gold, R.P. McMahon, U. Heresco-Levy, W.T. Carpenter, The Cognitive and Negative Symptoms in Schizophrenia Trial (CONSIST): The efficacy of glutamatergic agents for negative symptoms and cognitive impairments, Am J Psychiatry. 164 (2007) 1593--1602. doi:\href{https://doi.org/10.1176/appi.ajp.2007.06081358}{10.1176/appi.ajp.2007.06081358}.
+
+\leavevmode\hypertarget{ref-iwataEffectsGlutamatePositive2015}{}%
+{[}13{]} Y. Iwata, S. Nakajima, T. Suzuki, R.S.E. Keefe, E. Plitman, J.K. Chung, F. Caravaggio, M. Mimura, A. Graff-Guerrero, H. Uchida, Effects of glutamate positive modulators on cognitive deficits in schizophrenia: A systematic review and meta-analysis of double-blind randomized controlled trials, Molecular Psychiatry. 20 (2015) 1151--1160. doi:\href{https://doi.org/10.1038/mp.2015.68}{10.1038/mp.2015.68}.
+
+\leavevmode\hypertarget{ref-napolitanoNeurometabolicProfilingKetamine2016}{}%
+{[}14{]} A. Napolitano, M. Andellini, Neurometabolic Profiling of Ketamine: Changes in Neurotransmitter Pools, in: Neuropathology of Drug Addictions and Substance Misuse, Elsevier, 2016: pp. 573--580.
+
+\leavevmode\hypertarget{ref-baluNMDAReceptorSchizophrenia2016}{}%
+{[}15{]} D.T. Balu, The NMDA Receptor and Schizophrenia: From Pathophysiology to Treatment, in: R. Schwarcz (Ed.), Advances in Pharmacology. Vol. 76, Academic Press, 2016: pp. 351--382. doi:\href{https://doi.org/10.1016/bs.apha.2016.01.006}{10.1016/bs.apha.2016.01.006}.
+
+\leavevmode\hypertarget{ref-badoEffectsLowdoseDserine2011}{}%
+{[}16{]} P. Bado, C. Madeira, C. Vargas-Lopes, T.C. Moulin, A.P. Wasilewska-Sampaio, L. Maretti, R.V. de Oliveira, O.B. Amaral, R. Panizzutti, Effects of low-dose D-serine on recognition and working memory in mice, Psychopharmacology (Berl.). 218 (2011) 461--470. doi:\href{https://doi.org/10.1007/s00213-011-2330-4}{10.1007/s00213-011-2330-4}.
+
+\leavevmode\hypertarget{ref-liPersistingCognitiveDeficits2011}{}%
+{[}17{]} J.-T. Li, Y.-A. Su, C.-M. Guo, Y. Feng, Y. Yang, R.-H. Huang, T.-M. Si, Persisting cognitive deficits induced by low-dose, subchronic treatment with MK-801 in adolescent rats, European Journal of Pharmacology. 652 (2011) 65--72. doi:\href{https://doi.org/10.1016/j.ejphar.2010.10.074}{10.1016/j.ejphar.2010.10.074}.
+
+\leavevmode\hypertarget{ref-neillAnimalModelsCognitive2010}{}%
+{[}18{]} J.C. Neill, S. Barnes, S. Cook, B. Grayson, N.F. Idris, S.L. McLean, S. Snigdha, L. Rajagopal, M.K. Harte, Animal models of cognitive dysfunction and negative symptoms of schizophrenia: Focus on NMDA receptor antagonism, Pharmacol. Ther. 128 (2010) 419--432. doi:\href{https://doi.org/10.1016/j.pharmthera.2010.07.004}{10.1016/j.pharmthera.2010.07.004}.
+
+\leavevmode\hypertarget{ref-beckerKetamineinducedChangesRat2004}{}%
+{[}19{]} A. Becker, G. Grecksch, Ketamine-induced changes in rat behaviour: A possible animal model of schizophrenia. Test of predictive validity, Progress in Neuro-Psychopharmacology and Biological Psychiatry. 28 (2004) 1267--1277. doi:\href{https://doi.org/10.1016/j.pnpbp.2004.06.019}{10.1016/j.pnpbp.2004.06.019}.
+
+\leavevmode\hypertarget{ref-wong-rileyBigenomicRegulationCytochrome2012}{}%
+{[}20{]} M.T. Wong-Riley, Bigenomic Regulation of Cytochrome c Oxidase in Neurons and the Tight Coupling Between Neuronal Activity and Energy Metabolism, Adv Exp Med Biol. 748 (2012) 283--304. doi:\href{https://doi.org/10.1007/978-1-4614-3573-0_12}{10.1007/978-1-4614-3573-0\_12}.
+
+\leavevmode\hypertarget{ref-dharCouplingEnergyMetabolism2009}{}%
+{[}21{]} S.S. Dhar, M.T.T. Wong-Riley, Coupling of energy metabolism and synaptic transmission at the transcriptional level: Role of nuclear respiratory factor 1 in regulating both cytochrome c oxidase and NMDA glutamate receptor subunit genes, J. Neurosci. 29 (2009) 483--492. doi:\href{https://doi.org/10.1523/JNEUROSCI.3704-08.2009}{10.1523/JNEUROSCI.3704-08.2009}.
+
+\leavevmode\hypertarget{ref-dharNuclearRespiratoryFactor2009}{}%
+{[}22{]} S.S. Dhar, H.L. Liang, M.T.T. Wong-Riley, Nuclear respiratory factor 1 co-regulates AMPA glutamate receptor subunit 2 and cytochrome c oxidase: Tight coupling of glutamatergic transmission and energy metabolism in neurons, J. Neurochem. 108 (2009) 1595--1606. doi:\href{https://doi.org/10.1111/j.1471-4159.2009.05929.x}{10.1111/j.1471-4159.2009.05929.x}.
+
+\leavevmode\hypertarget{ref-princeMitochondrialFunctionDifferentially1999}{}%
+{[}23{]} J.A. Prince, K. Blennow, C.G. Gottfries, I. Karlsson, L. Oreland, Mitochondrial function is differentially altered in the basal ganglia of chronic schizophrenics, Neuropsychopharmacology. 21 (1999) 372--379. doi:\href{https://doi.org/10.1016/S0893-133X(99)00016-0}{10.1016/S0893-133X(99)00016-0}.
+
+\leavevmode\hypertarget{ref-princePutamenMitochondrialEnergy2000}{}%
+{[}24{]} J.A. Prince, J. Harro, K. Blennow, C.G. Gottfries, L. Oreland, Putamen mitochondrial energy metabolism is highly correlated to emotional and intellectual impairment in schizophrenics, Neuropsychopharmacology. 22 (2000) 284--292. doi:\href{https://doi.org/10.1016/S0893-133X(99)00111-6}{10.1016/S0893-133X(99)00111-6}.
+
+\leavevmode\hypertarget{ref-princeHistochemicalDemonstrationAltered1998}{}%
+{[}25{]} J.A. Prince, M.S. Yassin, L. Oreland, A histochemical demonstration of altered cytochrome oxidase activity in the rat brain by neuroleptics, Eur Neuropsychopharmacol. 8 (1998) 1--6.
+
+\leavevmode\hypertarget{ref-princeNormalizationCytochromecOxidase1997}{}%
+{[}26{]} J.A. Prince, M.S. Yassin, L. Oreland, Normalization of cytochrome-c oxidase activity in the rat brain by neuroleptics after chronic treatment with PCP or methamphetamine, Neuropharmacology. 36 (1997) 1665--1678. doi:\href{https://doi.org/10.1016/S0028-3908(97)00152-4}{10.1016/S0028-3908(97)00152-4}.
+
+\leavevmode\hypertarget{ref-deoliveiraBehavioralChangesMitochondrial2011}{}%
+{[}27{]} L. de Oliveira, D.B. Fraga, R.D. De Luca, L. Canever, F.V. Ghedim, M.P.P. Matos, E.L. Streck, J. Quevedo, A.I. Zugno, Behavioral changes and mitochondrial dysfunction in a rat model of schizophrenia induced by ketamine, Metab Brain Dis. 26 (2011) 69--77. doi:\href{https://doi.org/10.1007/s11011-011-9234-1}{10.1007/s11011-011-9234-1}.
+
+\leavevmode\hypertarget{ref-kanarikSociabilityTraitRegional2018}{}%
+{[}28{]} M. Kanarik, J. Harro, Sociability trait and regional cerebral oxidative metabolism in rats: Predominantly nonlinear relations, Behav. Brain Res. 337 (2018) 186--192. doi:\href{https://doi.org/10.1016/j.bbr.2017.08.049}{10.1016/j.bbr.2017.08.049}.
+
+\leavevmode\hypertarget{ref-gonzalez-limaQuantitativeHistochemistryCytochrome1998}{}%
+{[}29{]} F. Gonzalez-Lima, A. Cada, Quantitative histochemistry of cytochrome oxidase activity, in: Cytochrome Oxidase in Neuronal Metabolism and Alzheimer's Disease, Plenum Press, New York, 1998: pp. 55--90.
+
+\leavevmode\hypertarget{ref-R-mice}{}%
+{[}30{]} S. van Buuren, K. Groothuis-Oudshoorn, mice: Multivariate imputation by chained equations in r, Journal of Statistical Software. 45 (2011) 1--67. \url{https://www.jstatsoft.org/v45/i03/}.
+
+\leavevmode\hypertarget{ref-breimanClassificationRegressionTrees1984}{}%
+{[}31{]} L. Breiman, J.H. Friedman, R.A. Olshen, C.J. Stone, Classification and regression trees, Wadsworth International Group, Belmont, Calif, 1984.
+
+\leavevmode\hypertarget{ref-dooveRecursivePartitioningMissing2014}{}%
+{[}32{]} L.L. Doove, S. Van Buuren, E. Dusseldorp, Recursive partitioning for missing data imputation in the presence of interaction effects, Computational Statistics \& Data Analysis. 72 (2014) 92--104. doi:\href{https://doi.org/10.1016/j.csda.2013.10.025}{10.1016/j.csda.2013.10.025}.
+
+\leavevmode\hypertarget{ref-barnardMiscellaneaSmallsampleDegrees1999}{}%
+{[}33{]} J. Barnard, D.B. Rubin, Miscellanea. Small-sample degrees of freedom with multiple imputation, Biometrika. 86 (1999) 948--955. doi:\href{https://doi.org/10.1093/biomet/86.4.948}{10.1093/biomet/86.4.948}.
+
+\leavevmode\hypertarget{ref-mckenzieDGCAComprehensivePackage2016}{}%
+{[}34{]} A.T. McKenzie, I. Katsyv, W.-M. Song, M. Wang, B. Zhang, DGCA: A comprehensive R package for Differential Gene Correlation Analysis, BMC Syst Biol. 10 (2016). doi:\href{https://doi.org/10.1186/s12918-016-0349-1}{10.1186/s12918-016-0349-1}.
+
+\leavevmode\hypertarget{ref-dominoPharmacologicEffectsCI5811965}{}%
+{[}35{]} E.F. Domino, P. Chodoff, G. Corssen, Pharmacologic effects of CI-581, a new dissociative anesthetic, in man, Clinical Pharmacology \& Therapeutics. 6 (1965) 279--291. doi:\href{https://doi.org/10.1002/cpt196563279}{10.1002/cpt196563279}.
+
+\leavevmode\hypertarget{ref-clineschmidtAnticonvulsantActivity5methyl101982}{}%
+{[}36{]} B.V. Clineschmidt, G.E. Martin, P.R. Bunting, Anticonvulsant activity of (+)-5-methyl-10, 11-dihydro-5H-dibenzo{[}a, d{]}Cyclohepten-5, 10-imine (MK-801), a substance with potent anticonvulsant, central sympathomimetic, and apparent anxiolytic properties, Drug Development Research. 2 (1982) 123--134. doi:\href{https://doi.org/10.1002/ddr.430020203}{10.1002/ddr.430020203}.
+
+\leavevmode\hypertarget{ref-langsjoEffectsSubanestheticKetamine2004}{}%
+{[}37{]} J.W. Långsjö, E. Salmi, K.K. Kaisti, S. Aalto, S. Hinkka, R. Aantaa, V. Oikonen, T. Viljanen, T. Kurki, M. Silvanto, H. Scheinin, Effects of subanesthetic ketamine on regional cerebral glucose metabolism in humans, Anesthesiology. 100 (2004) 1065--1071. doi:\href{https://doi.org/10.1097/00000542-200405000-00006}{10.1097/00000542-200405000-00006}.
+
+\leavevmode\hypertarget{ref-maltbieKetaminePharmacologicalImaging2017}{}%
+{[}38{]} E.A. Maltbie, G.S. Kaundinya, L.L. Howell, Ketamine and pharmacological imaging: Use of functional magnetic resonance imaging to evaluate mechanisms of action, Behav Pharmacol. 28 (2017) 610--622. doi:\href{https://doi.org/10.1097/FBP.0000000000000354}{10.1097/FBP.0000000000000354}.
+
+\leavevmode\hypertarget{ref-deakinGlutamateNeuralBasis2008}{}%
+{[}39{]} J.F.W. Deakin, J. Lees, S. McKie, J.E.C. Hallak, S.R. Williams, S.M. Dursun, Glutamate and the neural basis of the subjective effects of ketamine: A pharmaco-magnetic resonance imaging study, Arch. Gen. Psychiatry. 65 (2008) 154--164. doi:\href{https://doi.org/10.1001/archgenpsychiatry.2007.37}{10.1001/archgenpsychiatry.2007.37}.
+
+\leavevmode\hypertarget{ref-wangNMDAReceptorsSubserve2013}{}%
+{[}40{]} M. Wang, Y. Yang, C.-J. Wang, N.J. Gamo, L.E. Jin, J.A. Mazer, J.H. Morrison, X.-J. Wang, A.F.T. Arnsten, NMDA receptors subserve persistent neuronal firing during working memory in dorsolateral prefrontal cortex, Neuron. 77 (2013) 736--749. doi:\href{https://doi.org/10.1016/j.neuron.2012.12.032}{10.1016/j.neuron.2012.12.032}.
+
+\leavevmode\hypertarget{ref-homayounNMDAReceptorHypofunction2007}{}%
+{[}41{]} H. Homayoun, B. Moghaddam, NMDA receptor hypofunction produces opposite effects on prefrontal cortex interneurons and pyramidal neurons, J. Neurosci. 27 (2007) 11496--11500. doi:\href{https://doi.org/10.1523/JNEUROSCI.2213-07.2007}{10.1523/JNEUROSCI.2213-07.2007}.
+
+\leavevmode\hypertarget{ref-chatterjeeNeurochemicalMolecularCharacterization2012}{}%
+{[}42{]} M. Chatterjee, R. Verma, S. Ganguly, G. Palit, Neurochemical and molecular characterization of ketamine-induced experimental psychosis model in mice, Neuropharmacology. 63 (2012) 1161--1171. doi:\href{https://doi.org/10.1016/j.neuropharm.2012.05.041}{10.1016/j.neuropharm.2012.05.041}.
+
+\leavevmode\hypertarget{ref-kimVivoExVivo2011}{}%
+{[}43{]} S.-Y. Kim, H. Lee, H.-J. Kim, E. Bang, S.-H. Lee, D.-W. Lee, D.-C. Woo, C.-B. Choi, K.S. Hong, C. Lee, B.-Y. Choe, In vivo and ex vivo evidence for ketamine-induced hyperglutamatergic activity in the cerebral cortex of the rat: Potential relevance to schizophrenia, NMR Biomed. 24 (2011) 1235--1242. doi:\href{https://doi.org/10.1002/nbm.1681}{10.1002/nbm.1681}.
+
+\leavevmode\hypertarget{ref-moghaddamActivationGlutamatergicNeurotransmission1997}{}%
+{[}44{]} B. Moghaddam, B. Adams, A. Verma, D. Daly, Activation of glutamatergic neurotransmission by ketamine: A novel step in the pathway from NMDA receptor blockade to dopaminergic and cognitive disruptions associated with the prefrontal cortex, J. Neurosci. 17 (1997) 2921--2927.
+
+\leavevmode\hypertarget{ref-amitaiRepeatedPhencyclidineAdministration2012}{}%
+{[}45{]} N. Amitai, R. Kuczenski, M.M. Behrens, A. Markou, Repeated phencyclidine administration alters glutamate release and decreases GABA markers in the prefrontal cortex of rats, Neuropharmacology. 62 (2012) 1422--1431. doi:\href{https://doi.org/10.1016/j.neuropharm.2011.01.008}{10.1016/j.neuropharm.2011.01.008}.
+
+\leavevmode\hypertarget{ref-vargiuPossibleRoleBrain1978}{}%
+{[}46{]} L. Vargiu, E. Stefanini, C. Musinu, G. Saba, Possible role of brain serotonin in the central effects of ketamine, Neuropharmacology. 17 (1978) 405--408. doi:\href{https://doi.org/10.1016/0028-3908(78)90014-x}{10.1016/0028-3908(78)90014-x}.
+
+\leavevmode\hypertarget{ref-hiramatsuComparisonBehavioralBiochemical1989}{}%
+{[}47{]} M. Hiramatsu, A.K. Cho, T. Nabeshima, Comparison of the behavioral and biochemical effects of the NMDA receptor antagonists, MK-801 and phencyclidine, Eur. J. Pharmacol. 166 (1989) 359--366. doi:\href{https://doi.org/10.1016/0014-2999(89)90346-4}{10.1016/0014-2999(89)90346-4}.
+
+\leavevmode\hypertarget{ref-loscherNmethylDaspartateReceptorAntagonist1991}{}%
+{[}48{]} W. Löscher, R. Annies, D. Hönack, The N-methyl-D-aspartate receptor antagonist MK-801 induces increases in dopamine and serotonin metabolism in several brain regions of rats, Neurosci. Lett. 128 (1991) 191--194. doi:\href{https://doi.org/10.1016/0304-3940(91)90258-u}{10.1016/0304-3940(91)90258-u}.
+
+\leavevmode\hypertarget{ref-hondoEffectPhencyclidineDopamine1994}{}%
+{[}49{]} H. Hondo, Y. Yonezawa, T. Nakahara, K. Nakamura, M. Hirano, H. Uchimura, N. Tashiro, Effect of phencyclidine on dopamine release in the rat prefrontal cortex; an in vivo microdialysis study, Brain Res. 633 (1994) 337--342. doi:\href{https://doi.org/10.1016/0006-8993(94)91558-x}{10.1016/0006-8993(94)91558-x}.
+
+\leavevmode\hypertarget{ref-nabeshimaSerotonergicInvolvementPhencyclidineinduced1984}{}%
+{[}50{]} T. Nabeshima, K. Yamaguchi, M. Hiramatsu, M. Amano, H. Furukawa, T. Kameyama, Serotonergic involvement in phencyclidine-induced behaviors, Pharmacol. Biochem. Behav. 21 (1984) 401--408. doi:\href{https://doi.org/10.1016/s0091-3057(84)80102-1}{10.1016/s0091-3057(84)80102-1}.
+
+\leavevmode\hypertarget{ref-kikuchiEffectsKetaminePentobarbitone1997}{}%
+{[}51{]} T. Kikuchi, Y. Wang, H. Shinbori, K. Sato, F. Okumura, Effects of ketamine and pentobarbitone on acetylcholine release from the rat frontal cortex in vivo, Br J Anaesth. 79 (1997) 128--130. doi:\href{https://doi.org/10.1093/bja/79.1.128}{10.1093/bja/79.1.128}.
+
+\leavevmode\hypertarget{ref-chatterjeeEffectChronicAcute2011}{}%
+{[}52{]} M. Chatterjee, S. Ganguly, M. Srivastava, G. Palit, Effect of 'chronic' versus 'acute' ketamine administration and its 'withdrawal' effect on behavioural alterations in mice: Implications for experimental psychosis, Behav. Brain Res. 216 (2011) 247--254. doi:\href{https://doi.org/10.1016/j.bbr.2010.08.001}{10.1016/j.bbr.2010.08.001}.
+
+\leavevmode\hypertarget{ref-frohlichReviewingKetamineModel2014}{}%
+{[}53{]} J. Frohlich, J.D. Van Horn, Reviewing the ketamine model for schizophrenia, J. Psychopharmacol. (Oxford). 28 (2014) 287--302. doi:\href{https://doi.org/10.1177/0269881113512909}{10.1177/0269881113512909}.
+
+\leavevmode\hypertarget{ref-kapurNMDAReceptorAntagonists2002}{}%
+{[}54{]} S. Kapur, P. Seeman, NMDA receptor antagonists ketamine and PCP have direct effects on the dopamine D(2) and serotonin 5-HT(2)Receptors-implications for models of schizophrenia, Mol. Psychiatry. 7 (2002) 837--844. doi:\href{https://doi.org/10.1038/sj.mp.4001093}{10.1038/sj.mp.4001093}.
+
+\leavevmode\hypertarget{ref-kurumajiEffectsMK801Local1989}{}%
+{[}55{]} A. Kurumaji, J. McCulloch, Effects of MK-801 upon local cerebral glucose utilisation in conscious rats and in rats anaesthetised with halothane, J. Cereb. Blood Flow Metab. 9 (1989) 786--794. doi:\href{https://doi.org/10.1038/jcbfm.1989.112}{10.1038/jcbfm.1989.112}.
+
+\leavevmode\hypertarget{ref-duncanMetabolicMappingRat1998}{}%
+{[}56{]} G.E. Duncan, S.S. Moy, D.J. Knapp, R.A. Mueller, G.R. Breese, Metabolic mapping of the rat brain after subanesthetic doses of ketamine: Potential relevance to schizophrenia, Brain Res. 787 (1998) 181--190. doi:\href{https://doi.org/10.1016/s0006-8993(97)01390-5}{10.1016/s0006-8993(97)01390-5}.
+
+\leavevmode\hypertarget{ref-cochranInductionMetabolicHypofunction2003}{}%
+{[}57{]} S.M. Cochran, M. Kennedy, C.E. McKerchar, L.J. Steward, J.A. Pratt, B.J. Morris, Induction of metabolic hypofunction and neurochemical deficits after chronic intermittent exposure to phencyclidine: Differential modulation by antipsychotic drugs, Neuropsychopharmacology. 28 (2003) 265--275. doi:\href{https://doi.org/10.1038/sj.npp.1300031}{10.1038/sj.npp.1300031}.
+
+\leavevmode\hypertarget{ref-allenVisualInputMouse2016}{}%
+{[}58{]} A.E. Allen, C.A. Procyk, M. Howarth, L. Walmsley, T.M. Brown, Visual input to the mouse lateral posterior and posterior thalamic nuclei: Photoreceptive origins and retinotopic order, J Physiol. 594 (2016) 1911--1929. doi:\href{https://doi.org/10.1113/JP271707}{10.1113/JP271707}.
+
+\leavevmode\hypertarget{ref-dragerTopographyVisualSomatosensory1976}{}%
+{[}59{]} U.C. Dräger, D.H. Hubel, Topography of visual and somatosensory projections to mouse superior colliculus, J. Neurophysiol. 39 (1976) 91--101. doi:\href{https://doi.org/10.1152/jn.1976.39.1.91}{10.1152/jn.1976.39.1.91}.
+
+\leavevmode\hypertarget{ref-populinAnestheticsChangeExcitation2005}{}%
+{[}60{]} L.C. Populin, Anesthetics change the excitation/inhibition balance that governs sensory processing in the cat superior colliculus, J. Neurosci. 25 (2005) 5903--5914. doi:\href{https://doi.org/10.1523/JNEUROSCI.1147-05.2005}{10.1523/JNEUROSCI.1147-05.2005}.
+
+\leavevmode\hypertarget{ref-ryugoDifferentialTelencephalicProjections1974}{}%
+{[}61{]} D.K. Ryugo, H.P. Killackey, Differential telencephalic projections of the medial and ventral divisions of the medial geniculate body of the rat, Brain Res. 82 (1974) 173--177. doi:\href{https://doi.org/10.1016/0006-8993(74)90903-2}{10.1016/0006-8993(74)90903-2}.
+
+\leavevmode\hypertarget{ref-hillhouseEffectsNoncompetitiveNmethylDaspartate2015}{}%
+{[}62{]} T.M. Hillhouse, C.R. Merritt, J.H. Porter, Effects of the noncompetitive N-methyl-D-aspartate (NMDA) receptor antagonist ketamine on visual signal detection performance in rats, Behav Pharmacol. 26 (2015) 495--499. doi:\href{https://doi.org/10.1097/FBP.0000000000000160}{10.1097/FBP.0000000000000160}.
+
+\leavevmode\hypertarget{ref-umbrichtKetamineinducedDeficitsAuditory2000}{}%
+{[}63{]} D. Umbricht, L. Schmid, R. Koller, F.X. Vollenweider, D. Hell, D.C. Javitt, Ketamine-induced deficits in auditory and visual context-dependent processing in healthy volunteers: Implications for models of cognitive deficits in schizophrenia, Arch. Gen. Psychiatry. 57 (2000) 1139--1147. doi:\href{https://doi.org/10.1001/archpsyc.57.12.1139}{10.1001/archpsyc.57.12.1139}.
+
+\leavevmode\hypertarget{ref-neudorferNeuroanatomicalBackgroundFunctional2018}{}%
+{[}64{]} C. Neudorfer, M. Maarouf, Neuroanatomical background and functional considerations for stereotactic interventions in the H fields of Forel, Brain Struct Funct. 223 (2018) 17--30. doi:\href{https://doi.org/10.1007/s00429-017-1570-4}{10.1007/s00429-017-1570-4}.
+
+\leavevmode\hypertarget{ref-veinanteThalamicProjectionsWhiskersensitive2000}{}%
+{[}65{]} P. Veinante, M.F. Jacquin, M. Deschênes, Thalamic projections from the whisker-sensitive regions of the spinal trigeminal complex in the rat, J. Comp. Neurol. 420 (2000) 233--243.
+
+\leavevmode\hypertarget{ref-alkoborssyModulationOlfactorydrivenBehavior2019}{}%
+{[}66{]} D. Al Koborssy, B. Palouzier-Paulignan, V. Canova, M. Thevenet, D.A. Fadool, A.K. Julliard, Modulation of olfactory-driven behavior by metabolic signals: Role of the piriform cortex, Brain Struct Funct. 224 (2019) 315--336. doi:\href{https://doi.org/10.1007/s00429-018-1776-0}{10.1007/s00429-018-1776-0}.
+
+\leavevmode\hypertarget{ref-paxinosRatBrainStereotaxic2007}{}%
+{[}67{]} G. Paxinos, C. Watson, The rat brain in stereotaxic coordinates, 6th ed, Academic Press/Elsevier, Amsterdam ; Boston, 2007.
 
 \pagebreak
 
