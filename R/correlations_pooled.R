@@ -24,6 +24,7 @@ fp_df_avg <- here("analysis", "data", "derived_data", "mids_df_avg.rds")
 fp_negative_pairs <- here("analysis", "data", "derived_data", "negative_pairs.rds")
 fp_positive_pairs <- here("analysis", "data", "derived_data", "positive_pairs.rds")
 fp_full_names <- here("analysis", "data", "raw_data", "190_brain_regions_full_names.csv")
+fp_heatmap_df <- here("analysis", "data", "derived_data", "heatmap_df.rds")
 
 # data frame with proper abbreviations and full names
 fp_names <- here("analysis", "data", "raw_data", "brain_regions.csv")
@@ -197,6 +198,8 @@ completed_p05_df <- p05_df %>% tidyr::complete(region1, region2, fill = (list(z_
 completed_p05_cor_df <- corrr::retract(.data = completed_p05_df, x = region1, y = region2,
                                            val = z_score_diff)
 completed_p05_cor_mat <- as_matrix(as_cordf(completed_p05_cor_df))
+
+readr::write_rds(completed_p05_cor_mat, fp_heatmap_df)
 
 pdf(fp_pos_heatmap, height = 12, width = 12, useDingbats = FALSE)
 corrplot(completed_p05_cor_mat, is.corr = FALSE, method = "color", tl.col = "black", tl.cex = 0.42,
