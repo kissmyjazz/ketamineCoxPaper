@@ -181,7 +181,7 @@ full_names_df <- read_csv(fp_full_names) %>% dplyr::select(joint_names, full_nam
 # at p = 0.05
 control_p05_df <- regional_df %>% ungroup() %>%
   dplyr::filter(p < 0.05) %>%
-  dplyr::mutate_if(is.factor, as.character)  %>%
+  dplyr::mutate_if(is.factor, as.character) %>%
   dplyr::filter(str_detect(region1, "background", negate = TRUE) &
                   str_detect(region2, "background", negate = TRUE)) %>%
   left_join(full_names_df, by = c("region1" = "joint_names")) %>% dplyr::select(-region1) %>%
