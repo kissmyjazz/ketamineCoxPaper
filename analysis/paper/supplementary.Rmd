@@ -1,4 +1,5 @@
 ---
+subtitle          : "Cytochrome c oxidase metabolic mapping in a subchronic ketamine administration model"
 title             : "Supplementary materials"
 csl               : "../templates/behavioural-brain-research.csl"
 output            : 
@@ -17,12 +18,11 @@ library("ggplot2")
 library("tidyverse")
 library("scales")
 library("gridExtra")
-library("mice")
 library("here")
 library("kableExtra")
 library("ggraph")
 library("grid")
-library("igraph")
+library("corrplot")
 
 # Seed for random number generation
 set.seed(42)
@@ -77,3 +77,18 @@ g_lot <- stripplot(mids_rf, LOT...1.3. ~ .imp, pch = 20, cex = 2,
           })
 g_lot
 ```
+
+```{r heatmap-preparation}
+fp_heatmap_df <- here("analysis", "data", "derived_data", "heatmap_df.rds")
+heatmap_df <- readr::read_rds(fp_heatmap_df)
+```
+
+(ref:heatmap) Heatmap of the significant changes in correlation coefficients expressed as a difference in normalised z-scores between control and ketamine-treatment groups. Red part of the colormap depicts cases where strong positive correlations in control rats were negative or non-significant in ketamine rats. Blue part of the colormap corresponds to the cases of increased positive association between brain regions in ketamine-treated rats. White color corresponds to the absence of significant differences in pairwise association between two conditions.  
+
+```{r heatmap-fig, fig.cap="(ref:heatmap)", fig.height=12, fig.width=12}
+corrplot(heatmap_df, is.corr = FALSE, method = "color", tl.col = "black", tl.cex = 0.42,
+         order = "alphabet", diag = FALSE,
+         title = expression(paste("Heatmap of changes in pairwise correlations expressed as ", Delta,
+         " z-scores at p < 0.05")), mar = c(1, 1, 3, 1), cex.main = 1.6)
+```
+
