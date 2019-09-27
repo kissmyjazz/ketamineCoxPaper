@@ -1,5 +1,5 @@
 ---
-subtitle          : "Cytochrome c oxidase metabolic mapping in a subchronic ketamine administration model"
+subtitle          : "Cytochrome c oxidase metabolic mapping after subchronic ketamine administration"
 title             : "Supplementary materials"
 csl               : "../templates/behavioural-brain-research.csl"
 output            : 
